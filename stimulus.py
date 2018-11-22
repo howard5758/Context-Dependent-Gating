@@ -10,12 +10,12 @@ class Stimulus:
     def __init__(self, include_cifar10 = False, labels_per_task = 5, include_all = False):
 
         if par['task'] == 'mnist':
-            self.mnist_dir = './mnist/data/original'
+            self.mnist_dir = '..//mnist//data//original//'
             self.generate_mnist_tuning()
 
         elif par['task'] == 'cifar':
-            self.cifar10_dir = './cifar/cifar-10-python/'
-            self.cifar100_dir = './cifar/cifar-100-python/'
+            self.cifar10_dir = '../cifar/cifar-10-python/'
+            self.cifar100_dir = '../cifar/cifar-100-python/'
             self.num_labels = 110
             self.labels_per_task = labels_per_task
             self.generate_cifar_tuning(include_cifar10, include_all)

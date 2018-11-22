@@ -57,6 +57,7 @@ def gen_gating():
     """
     Generate the gating signal to applied to all hidden units
     """
+    print('Generating the gating signal to be applied to all hidden units')
     par['gating'] = []
     for t in range(par['n_tasks']):
         gating_task = []
@@ -86,11 +87,17 @@ def update_dependencies():
     """
 
     par['n_layers'] = len(par['layer_dims'])
+    print('n_layers has been updated to', len(par['layer_dims']))
+
     if par['task'] == 'mnist' or par['task'] == 'imagenet':
         par['labels_per_task'] = 10
+        print('Labels per task is', par['labels_per_task'])
     elif par['task'] == 'cifar':
         par['labels_per_task'] = 5
+        print('Labels per task is', par['labels_per_task'])
+    
     gen_gating()
+    print('Finished generating gating for hidden units')
 
 
 def update_parameters(updates):

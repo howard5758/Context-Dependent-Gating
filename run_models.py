@@ -3,6 +3,7 @@ from parameters import *
 import model
 import sys, os
 import pickle
+import time
 
 
 def try_model(save_fn, gpu_id = None):
@@ -82,3 +83,11 @@ def run_imagenet_SI_model(gpu_id):
     update_parameters({'train_convolutional_layers': True})
     save_fn = 'imagenet_SI_XdG.pkl'
     try_model(save_fn, gpu_id)
+
+
+if __name__ == "__main__":
+    start_time = time.time()
+    run_mnist_SI_model("0")
+    end_time = time.time()
+    run_time = end_time - start_time
+    print('Task finished, took ', run_time, 'seconds')

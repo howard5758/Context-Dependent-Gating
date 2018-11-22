@@ -311,17 +311,26 @@ class Model:
 
 def main(save_fn, gpu_id=None):
     """ Run supervised learning training """
-
+    print('Program starts')
     # Update all dependencies in parameters
     update_dependencies()
 
     # Isolate requested GPU
     if gpu_id is not None:
+        print('Cuda GPI id is', gpu_id)
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
+
+    if (par['task'] == 'cifar'):
+            print('Task is cifar')
+    elif (par['task'] == 'imagenet'):
+        print('Task is imagenet')
+    else:
+        print('Task is mnist')
 
     # If desired, train the convolutional layers with the CIFAR datasets
     # Otherwise, the network will load convolutional weights from the saved file
     if (par['task'] == 'cifar' or par['task'] == 'imagenet') and par['train_convolutional_layers']:
+        print('Added convoltional layersfor training')
         convolutional_layers.ConvolutionalLayers()
 
     print('\nRunning model.\n')
@@ -330,14 +339,17 @@ def main(save_fn, gpu_id=None):
     tf.reset_default_graph()
 
     # Create placeholders for the model
+    # tf.placeholder(dtype, shape=None, name=None)
     if par['task'] == 'mnist':
         x   = tf.placeholder(tf.float32, [par['batch_size'], par['layer_dims'][0]], 'stim')
     elif par['task'] == 'cifar' or par['task'] == 'imagenet':
         x   = tf.placeholder(tf.float32, [par['batch_size'], 32, 32, 3], 'stim')
+    
     y       = tf.placeholder(tf.float32, [par['batch_size'], par['layer_dims'][-1]], 'out')
     mask    = tf.placeholder(tf.float32, [par['batch_size'], par['layer_dims'][-1]], 'mask')
     rule    = tf.placeholder(tf.float32, [par['batch_size'], par['n_tasks']], 'rulecue')
     gating  = [tf.placeholder(tf.float32, [par['layer_dims'][n+1]], 'gating') for n in range(par['n_layers']-1)]
+    
     droput_keep_pct         = tf.placeholder(tf.float32, [], 'dropout')
     input_droput_keep_pct   = tf.placeholder(tf.float32, [], 'input_dropout')
 
