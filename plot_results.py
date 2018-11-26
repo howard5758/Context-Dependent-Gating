@@ -8,15 +8,186 @@ from itertools import product
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 
-matplotlib.rcParams['pdf.fonttype'] = 42
-matplotlib.rcParams['ps.fonttype'] = 42
-plt.rcParams["font.family"] = "arial"
+print('aaa')
 
+def plot_best_result(ax, data_dir, prefix, col = [0,0,1], split = 1, description = [], label=None, linestyle = '-'):
+
+    print('aaaaa')
+    # Get filenames
+    name_and_data = []
+    for full_fn in os.listdir(data_dir):
+        if full_fn.startswith(prefix):
+            x = pickle.load(open(data_dir + full_fn, 'rb'))
+            name_and_data.append((full_fn, x['accuracy_full'][-1], x['par']['omega_c']))
+
+    if prefix == 'mnist_SI_rule':
+        print('mnist_STI_rule')
+        print(name_and_data)
+        print(os.listdir(data_dir))
+        print(data_dir)
+        print('XXXX')
+
+    # Find number of c's and v's
+    cids = []
+    vids = []
+    xids = []
+    om_c = []
+    for (f, _, oc) in name_and_data:
+
+        if 'xi' in f:
+            if f[-12] not in cids:
+                cids.append(f[-12])
+            if f[-8] not in xids:
+                xids.append(f[-8])
+            if f[-5] not in vids:
+                vids.append(f[-5])
+        else:
+            if f[-9].isdigit():
+                c = f[-9:-7]
+            else:
+                c = f[-8]
+            if c not in cids:
+                cids.append(c)
+            if f[-5] not in vids:
+                vids.append(f[-5])
+            xids = [0]
+        om_c.append(oc)
+
+
+    accuracies = np.zeros((len(xids),len(cids)))
+    count = np.zeros((len(xids),len(cids)))
+    cids = sorted(cids)
+    vids = sorted(vids)
+    xids = sorted(xids)
+
+    print(prefix, cids, vids, xids)
+
+    for i, c_id, in enumerate(cids):
+        for v_id in vids:
+            for j, x_id in enumerate(xids):
+                #text_c = 'omega'+str(c_id)
+                text_c = 'omega'+str(c_id)
+                text_v = '_v'+str(v_id)
+                text_x = '_xi'+str(x_id)
+                for full_fn in os.listdir(data_dir):
+                    if full_fn.startswith(prefix) and 'xi' in full_fn and text_c in full_fn and text_v in full_fn and text_x in full_fn:
+                        #print('c_id', c_id)
+                        x = pickle.load(open(data_dir + full_fn, 'rb'))
+                        accuracies[j,i] += x['accuracy_full'][-1]
+                        count[j,i] += 1
+                    elif full_fn.startswith(prefix) and not 'xi' in full_fn  and text_c in full_fn and text_v in full_fn:
+                        #print('c_id', c_id)
+                        x = pickle.load(open(data_dir + full_fn, 'rb'))
+                        accuracies[j,i] += x['accuracy_full'][-1]
+                        count[j,i] += 1
+
+    accuracies /= (1e-16+count)
+    accuracies = np.reshape(accuracies,(1,-1))
+    print(prefix)
+    print(accuracies)
+    ind_best = np.argsort(accuracies)[-1]
+    best_c = int(ind_best[-1]%len(cids))
+    best_xi = ind_best[-1]//len(cids)
+    task_accuracy = []
+
+
+    for v_id in vids:
+        #text_c = 'omega'+str(cids[best_c])
+        text_c = 'omega'+str(cids[best_c])
+        text_xi = 'xi'+str(xids[best_xi])
+        text_v = '_v'+str(v_id)
+
+        print(prefix, text_c, text_xi, text_v)
+
+        for full_fn in os.listdir(data_dir):
+            if full_fn.startswith(prefix)  and 'xi' in full_fn and text_c in full_fn and text_v in full_fn and text_x in full_fn:
+                x = pickle.load(open(data_dir + full_fn, 'rb'))
+                task_accuracy.append(x['accuracy_full'])
+                print(prefix,' ', full_fn, ' ', x['par']['stabilization'], ' omega C ', x['par']['omega_c'])
+            elif full_fn.startswith(prefix)  and not 'xi' in full_fn and text_c in full_fn and text_v in full_fn:
+                x = pickle.load(open(data_dir + full_fn, 'rb'))
+                task_accuracy.append(x['accuracy_full'])
+                print(prefix,' ', full_fn, ' ', x['par']['stabilization'], x['par']['gating_type'], x['par']['multihead'], ' omega C ', x['par']['omega_c'], x['par']['omega_xi'])
+
+    task_accuracy = np.mean(np.stack(task_accuracy),axis=0)
+
+
+    if split > 1:
+        task_accuracy = np.array(task_accuracy)
+        task_accuracy = np.tile(np.reshape(task_accuracy,(-1,1)),(1,split))
+        task_accuracy = np.reshape(task_accuracy,(1,-1))[0,:]
+
+    if not description == []:
+        print(description , ' ACC after 10 trials = ', task_accuracy[9],  ' after 30 trials = ', task_accuracy[29],  \
+            ' after 100 trials = ', task_accuracy[99])
+
+    ax.plot(np.arange(1, np.shape(task_accuracy)[0]+1), task_accuracy, color = col, linestyle = linestyle, label=label)
+
+
+    return task_accuracy[[9,-1]]
+
+def plot_mnist():
+    print('Ploting mnist results')
+    savedir = './savedir/mnist/'
+    #all_same_scale = True
+    f, ax1 = plt.subplots(1, 1, figsize=(4, 2.5))
+    accuracy = {}
+
+    ylim_min = 0.6
+
+    accuracy['SI_XdG'] = plot_best_result(ax1, savedir, 'mnist_SI_XdG', label='SI + XdG', linestyle = '-')
+    accuracy['SI_partial'] = plot_best_result(ax1, savedir, 'mnist_SI_partial', label='SI + partial', linestyle = '-')
+    accuracy['EWC_XdG'] = plot_best_result(ax1, savedir, 'mnist_EWC_XdG', label='EWC + XdG', linestyle = '--')
+    accuracy['EWC_partial'] = plot_best_result(ax1, savedir, 'mnist_EWC_partial', label='EWC + partial', linestyle = '--')
+
+    ax1.legend(ncol=3, fontsize=9)
+    ax1.grid(True)
+    ax1.set_xlim(0,100)
+    add_subplot_details(ax1, [ylim_min,1], [0,100], [])
+
+    plt.tight_layout()
+    plt.savefig(savedir + 'mnist_results.png', format='png')
+    plt.show()
+
+def plot_cifar():
+    print('Ploting CIFAR results')
+    savedir = './savedir/cifar/'
+    #all_same_scale = True
+    f, ax1 = plt.subplots(1, 1, figsize=(4, 2.5))
+    accuracy = {}
+
+    ylim_min = 0.6
+
+    accuracy['SI_XdG'] = plot_best_result(ax1, savedir, 'cifar_SI_XdG', label='SI + XdG', linestyle = '-')
+    accuracy['SI_partial'] = plot_best_result(ax1, savedir, 'cifar_SI_partial', label='SI + partial', linestyle = '-')
+    accuracy['EWC_XdG'] = plot_best_result(ax1, savedir, 'cifar_EWC_XdG', label='EWC + XdG', linestyle = '--')
+    accuracy['EWC_partial'] = plot_best_result(ax1, savedir, 'cifar_EWC_partial', label='EWC + partial', linestyle = '--')
+
+    ax1.legend(ncol=3, fontsize=9)
+    ax1.grid(True)
+    ax1.set_xlim(0,100)
+    add_subplot_details(ax1, [ylim_min,1], [0,100], [])
+
+    plt.tight_layout()
+    plt.savefig(savedir + 'cifar_results.png', format='png')
+    plt.show()
+
+'''
+if __name__ == "__main__":
+    print('Generating plots')
+    matplotlib.rcParams['pdf.fonttype'] = 42
+    matplotlib.rcParams['ps.fonttype'] = 42
+    plt.rcParams["font.family"] = "arial"
+    '''
+print('Generating plots')
+plot_mnist()
+
+'''    
 def plot_fig2_new():
 
-    #savedir = './savedir/mnist/'
-    savedir = '/media/masse/MySSDataStor1/Context-Dependent Gating/Final MNIST/'
-    savedir1 = '/media/masse/MySSDataStor1/Context-Dependent Gating/Final MNIST/'
+    savedir = './savedir/mnist/'
+    #savedir = '/media/masse/MySSDataStor1/Context-Dependent Gating/Final MNIST/'
+    #savedir1 = '/media/masse/MySSDataStor1/Context-Dependent Gating/Final MNIST/'
     all_same_scale = True
     f, ax1 = plt.subplots(1,1,figsize=(4,2.5))
     accuracy = {}
@@ -742,122 +913,6 @@ def add_subplot_details(ax, ylim = [0,1], xlim = [0,100],yminor = []):
     ax.set_ylabel('Mean task accuracy')
     ax.set_xlabel('Task number')
 
-def plot_best_result(ax, data_dir, prefix, col = [0,0,1], split = 1, description = [], label=None, linestyle = '-'):
-
-
-    # Get filenames
-    name_and_data = []
-    for full_fn in os.listdir(data_dir):
-        if full_fn.startswith(prefix):
-            x = pickle.load(open(data_dir + full_fn, 'rb'))
-            name_and_data.append((full_fn, x['accuracy_full'][-1], x['par']['omega_c']))
-
-    if prefix == 'mnist_SI_rule':
-        print('mnist_STI_rule')
-        print(name_and_data)
-        print(os.listdir(data_dir))
-        print(data_dir)
-        print('XXXX')
-
-    # Find number of c's and v's
-    cids = []
-    vids = []
-    xids = []
-    om_c = []
-    for (f, _, oc) in name_and_data:
-
-        if 'xi' in f:
-            if f[-12] not in cids:
-                cids.append(f[-12])
-            if f[-8] not in xids:
-                xids.append(f[-8])
-            if f[-5] not in vids:
-                vids.append(f[-5])
-        else:
-            if f[-9].isdigit():
-                c = f[-9:-7]
-            else:
-                c = f[-8]
-            if c not in cids:
-                cids.append(c)
-            if f[-5] not in vids:
-                vids.append(f[-5])
-            xids = [0]
-        om_c.append(oc)
-
-
-    accuracies = np.zeros((len(xids),len(cids)))
-    count = np.zeros((len(xids),len(cids)))
-    cids = sorted(cids)
-    vids = sorted(vids)
-    xids = sorted(xids)
-
-    print(prefix, cids, vids, xids)
-
-    for i, c_id, in enumerate(cids):
-        for v_id in vids:
-            for j, x_id in enumerate(xids):
-                #text_c = 'omega'+str(c_id)
-                text_c = 'omega'+str(c_id)
-                text_v = '_v'+str(v_id)
-                text_x = '_xi'+str(x_id)
-                for full_fn in os.listdir(data_dir):
-                    if full_fn.startswith(prefix) and 'xi' in full_fn and text_c in full_fn and text_v in full_fn and text_x in full_fn:
-                        #print('c_id', c_id)
-                        x = pickle.load(open(data_dir + full_fn, 'rb'))
-                        accuracies[j,i] += x['accuracy_full'][-1]
-                        count[j,i] += 1
-                    elif full_fn.startswith(prefix) and not 'xi' in full_fn  and text_c in full_fn and text_v in full_fn:
-                        #print('c_id', c_id)
-                        x = pickle.load(open(data_dir + full_fn, 'rb'))
-                        accuracies[j,i] += x['accuracy_full'][-1]
-                        count[j,i] += 1
-
-    accuracies /= (1e-16+count)
-    accuracies = np.reshape(accuracies,(1,-1))
-    print(prefix)
-    print(accuracies)
-    ind_best = np.argsort(accuracies)[-1]
-    best_c = int(ind_best[-1]%len(cids))
-    best_xi = ind_best[-1]//len(cids)
-    task_accuracy = []
-
-
-    for v_id in vids:
-        #text_c = 'omega'+str(cids[best_c])
-        text_c = 'omega'+str(cids[best_c])
-        text_xi = 'xi'+str(xids[best_xi])
-        text_v = '_v'+str(v_id)
-
-        print(prefix, text_c, text_xi, text_v)
-
-        for full_fn in os.listdir(data_dir):
-            if full_fn.startswith(prefix)  and 'xi' in full_fn and text_c in full_fn and text_v in full_fn and text_x in full_fn:
-                x = pickle.load(open(data_dir + full_fn, 'rb'))
-                task_accuracy.append(x['accuracy_full'])
-                print(prefix,' ', full_fn, ' ', x['par']['stabilization'], ' omega C ', x['par']['omega_c'])
-            elif full_fn.startswith(prefix)  and not 'xi' in full_fn and text_c in full_fn and text_v in full_fn:
-                x = pickle.load(open(data_dir + full_fn, 'rb'))
-                task_accuracy.append(x['accuracy_full'])
-                print(prefix,' ', full_fn, ' ', x['par']['stabilization'], x['par']['gating_type'], x['par']['multihead'], ' omega C ', x['par']['omega_c'], x['par']['omega_xi'])
-
-    task_accuracy = np.mean(np.stack(task_accuracy),axis=0)
-
-
-    if split > 1:
-        task_accuracy = np.array(task_accuracy)
-        task_accuracy = np.tile(np.reshape(task_accuracy,(-1,1)),(1,split))
-        task_accuracy = np.reshape(task_accuracy,(1,-1))[0,:]
-
-    if not description == []:
-        print(description , ' ACC after 10 trials = ', task_accuracy[9],  ' after 30 trials = ', task_accuracy[29],  \
-            ' after 100 trials = ', task_accuracy[99])
-
-    ax.plot(np.arange(1, np.shape(task_accuracy)[0]+1), task_accuracy, color = col, linestyle = linestyle, label=label)
-
-
-    return task_accuracy[[9,-1]]
-
 def retrieve_best_result(data_dir, fn):
     best_accuracy = -1
     val_c = 0.
@@ -870,3 +925,5 @@ def retrieve_best_result(data_dir, fn):
                 val_c         = x['par']['omega_c']
 
     return val_c, task_accuracy
+'''
+

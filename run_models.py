@@ -68,9 +68,20 @@ imagenet_split_updates = {'layer_dims':[4096, 3665, 3665, 10], 'multihead': Fals
 def run_mnist_SI_model(gpu_id):
     print('MNIST - Synaptic Stabilization = SI - Gating = 80%')
     update_parameters(mnist_updates)
-    update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 0.8})
-    update_parameters({'stabilization': 'pathint', 'omega_c': 0.035, 'omega_xi': 0.01})
-    save_fn = 'mnist_SI_XdG.pkl'
+    update_parameters({'gating_type': 'partial','gate_pct': 0.8, 'input_drop_keep_pct': 0.8})
+    update_parameters({'stabilization': 'EWC', 'omega_c': 0.035, 'omega_xi': 0.01})
+    save_fn = 'mnist_EWC_partial.pkl'
+    try_model(save_fn, gpu_id)
+
+# training a network on 20 sequential CIFAR permutations using synaptic intelligence 
+# and context-dependent gating (XdG) 
+def run_cifar_SI_model(gpu_id):
+    print('CIFAR - Synaptic Stabilization = SI - Gating = 80%')
+    update_parameters(cifar_updates)
+    update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 1.0})
+    update_parameters({'stabilization': 'pathint', 'omega_c': 0.75, 'omega_xi': 0.01})
+    update_parameters({'train_convolutional_layers': True})
+    save_fn = 'cifar_SI_XdG_pathint.pkl'
     try_model(save_fn, gpu_id)
 
 # training a network on 100 sequential Imagenet tasks using synaptic intelligence 
@@ -78,7 +89,7 @@ def run_mnist_SI_model(gpu_id):
 def run_imagenet_SI_model(gpu_id):
     print('ImageNet - Synaptic Stabilization = SI - Gating = 80%')
     update_parameters(imagenet_updates)
-    update_parameters({'gating_type': 'XdG','gate_pct': 0.80, 'input_drop_keep_pct': 1.0})
+    update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 1.0})
     update_parameters({'stabilization': 'pathint', 'omega_c': 0.75, 'omega_xi': 0.01})
     update_parameters({'train_convolutional_layers': True})
     save_fn = 'imagenet_SI_XdG.pkl'
@@ -86,8 +97,24 @@ def run_imagenet_SI_model(gpu_id):
 
 
 if __name__ == "__main__":
-    start_time = time.time()
+
+    mnist_start_time = time.time()
     run_mnist_SI_model("0")
-    end_time = time.time()
-    run_time = end_time - start_time
-    print('Task finished, took ', run_time, 'seconds')
+    mnist_end_time = time.time()
+    mnist_run_time = mnist_end_time - mnist_start_time
+    print('EWC_paitial finished, took', mnist_run_time, 'seconds')
+
+    '''
+    cifar_start_time = time.time()
+    run_cifar_SI_model("0")
+    cifar_end_time = time.time()
+    cifar_run_time = cifar_end_time - cifar_start_time
+    print('cifar_SI_XdG_pathint finished, took', cifar_run_time, 'seconds')
+    '''
+    '''
+    imagenet_start_time = time.time()
+    run_imagenet_SI_model("0")
+    imagenet_end_time = time.time()
+    imagenet_run_time = imagenet_end_time - imagenet_start_time
+    print('imagenet_SI_model finished, took', imagenet_run_time, 'seconds')
+    '''

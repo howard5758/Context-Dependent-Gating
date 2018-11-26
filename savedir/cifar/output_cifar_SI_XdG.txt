@@ -1,0 +1,101 @@
+(py35) C:\Users\zhaoz\Desktop\UChicago\Autumn2018\CMSC 35200 Deep Learning System\Project\Context-Dependent-Gating-FeedForward>python run_models.py
+
+--> Loading parameters...
+--> Parameters successfully loaded.
+
+CIFAR - Synaptic Stabilization = SI - Gating = 80%
+Updating: drop_keep_pct --> 0.5
+Updating: n_train_batches --> 977
+Updating: n_tasks --> 20
+Updating: layer_dims --> [4096, 1000, 1000, 5]
+Updating: multihead --> False
+Updating: task --> cifar
+Updating: save_dir --> ./savedir/
+Updating: input_drop_keep_pct --> 1.0
+Updating: gating_type --> XdG
+Updating: gate_pct --> 0.8
+Updating: input_drop_keep_pct --> 1.0
+Updating: omega_xi --> 0.01
+Updating: stabilization --> pathint
+Updating: omega_c --> 0.75
+Updating: train_convolutional_layers --> False
+Program starts
+Cuda GPI id is 0
+Convolutional layers has been trained before, weights will be loaded
+
+Running model.
+
+CIFAR shapes: (10000, 1) (50000, 1)
+conv_weights has been loaded from ./savedir/cifar_conv_weights.pkl
+Input condition has been applied
+WARNING:tensorflow:From C:\Users\zhaoz\Desktop\UChicago\Autumn2018\CMSC 35200 Deep Learning System\Project\Context-Dependent-Gating-FeedForward\model.py:188: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See `tf.nn.softmax_cross_entropy_with_logits_v2`.
+
+Iter:  0 Loss:  1.6092949 Aux Loss:  0.0
+Iter:  500 Loss:  0.006735929 Aux Loss:  0.0
+Task: 0 Time: 45.23465871810913 Mean: 0.86953125  First: 0.86953125  Last: 0.86953125
+Iter:  0 Loss:  1.6818621 Aux Loss:  0.0
+Iter:  500 Loss:  0.0045570075 Aux Loss:  0.0033272023
+Task: 1 Time: 42.45266580581665 Mean: 0.8830078124999999  First: 0.86796875  Last: 0.8980468749999999
+Iter:  0 Loss:  1.637468 Aux Loss:  0.0
+Iter:  500 Loss:  0.030412706 Aux Loss:  0.010527185
+Task: 2 Time: 42.812270402908325 Mean: 0.8722656249999999  First: 0.8578125  Last: 0.87109375
+Iter:  0 Loss:  1.7743152 Aux Loss:  0.0
+Iter:  500 Loss:  0.019069884 Aux Loss:  0.022147331
+Task: 3 Time: 43.000927448272705 Mean: 0.85322265625  First: 0.8554687500000001  Last: 0.8230468750000001
+Iter:  0 Loss:  1.7407553 Aux Loss:  0.0
+Iter:  500 Loss:  0.014038112 Aux Loss:  0.014280148
+Task: 4 Time: 43.287659645080566 Mean: 0.87859375  First: 0.8722656249999999  Last: 0.9335937500000001
+Iter:  0 Loss:  1.7682331 Aux Loss:  0.0
+Iter:  500 Loss:  0.022417746 Aux Loss:  0.03438263
+Task: 5 Time: 43.50880241394043 Mean: 0.8680338541666667  First: 0.8617187500000001  Last: 0.830078125
+Iter:  0 Loss:  1.7812046 Aux Loss:  0.0
+Iter:  500 Loss:  0.027571358 Aux Loss:  0.03537339
+Task: 6 Time: 43.84419822692871 Mean: 0.8596540178571429  First: 0.86875  Last: 0.8382812500000001
+Iter:  0 Loss:  1.8986939 Aux Loss:  0.0
+Iter:  500 Loss:  0.03981506 Aux Loss:  0.054029442
+Task: 7 Time: 47.78104543685913 Mean: 0.8537109375  First: 0.8683593749999998  Last: 0.8347656250000001
+Iter:  0 Loss:  2.0200024 Aux Loss:  0.0
+Iter:  500 Loss:  0.032681134 Aux Loss:  0.08074067
+Task: 8 Time: 48.17110347747803 Mean: 0.8595920138888888  First: 0.853125  Last: 0.85546875
+Iter:  0 Loss:  1.8331757 Aux Loss:  0.0
+Iter:  500 Loss:  0.020214722 Aux Loss:  0.03844844
+Task: 9 Time: 48.36096405982971 Mean: 0.868125  First: 0.8519531250000001  Last: 0.9066406250000001
+Iter:  0 Loss:  2.1265564 Aux Loss:  0.0
+Iter:  500 Loss:  0.04527817 Aux Loss:  0.06899765
+Task: 10 Time: 48.66188383102417 Mean: 0.8649857954545456  First: 0.8601562500000001  Last: 0.87890625
+Iter:  0 Loss:  2.386151 Aux Loss:  0.0
+Iter:  500 Loss:  0.07324581 Aux Loss:  0.091660805
+Task: 11 Time: 48.93174910545349 Mean: 0.8625325520833332  First: 0.846875  Last: 0.86015625
+Iter:  0 Loss:  2.3149166 Aux Loss:  0.0
+Iter:  500 Loss:  0.035725992 Aux Loss:  0.067309916
+Task: 12 Time: 49.20188498497009 Mean: 0.8695612980769231  First: 0.8429687499999999  Last: 0.9035156249999999
+Iter:  0 Loss:  1.9734328 Aux Loss:  0.0
+Iter:  500 Loss:  0.097375244 Aux Loss:  0.14158005
+Task: 13 Time: 49.40729999542236 Mean: 0.8666573660714286  First: 0.8492187499999999  Last: 0.8800781250000002
+Iter:  0 Loss:  1.9446559 Aux Loss:  0.0
+Iter:  500 Loss:  0.13359286 Aux Loss:  0.1080292
+Task: 14 Time: 49.62428641319275 Mean: 0.8641927083333335  First: 0.860546875  Last: 0.8468749999999999
+Iter:  0 Loss:  1.9390705 Aux Loss:  0.0
+Iter:  500 Loss:  0.13890079 Aux Loss:  0.18484399
+Task: 15 Time: 49.89008402824402 Mean: 0.8563232421875  First: 0.830859375  Last: 0.803515625
+Iter:  0 Loss:  2.2602177 Aux Loss:  0.0
+Iter:  500 Loss:  0.10153538 Aux Loss:  0.10318578
+Task: 16 Time: 50.188236713409424 Mean: 0.860202205882353  First: 0.838671875  Last: 0.879296875
+Iter:  0 Loss:  1.995316 Aux Loss:  0.0
+Iter:  500 Loss:  0.11467901 Aux Loss:  0.13236925
+Task: 17 Time: 50.43665599822998 Mean: 0.8582248263888889  First: 0.851953125  Last: 0.8539062499999999
+Iter:  0 Loss:  2.1567688 Aux Loss:  0.0
+Iter:  500 Loss:  0.12508184 Aux Loss:  0.13639839
+Task: 18 Time: 50.656431436538696 Mean: 0.8588610197368421  First: 0.840625  Last: 0.8855468750000001
+Iter:  0 Loss:  2.1665704 Aux Loss:  0.0
+Iter:  500 Loss:  0.10058823 Aux Loss:  0.16653539
+Task: 19 Time: 50.906683683395386 Mean: 0.8622851562500001  First: 0.8484375000000002  Last: 0.9007812500000001
+
+Model execution complete.
+cifar_SI_XdG_pathint finished, took 951.2802667617798 seconds

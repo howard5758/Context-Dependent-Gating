@@ -14,8 +14,8 @@ class Stimulus:
             self.generate_mnist_tuning()
 
         elif par['task'] == 'cifar':
-            self.cifar10_dir = '../cifar/cifar-10-python/'
-            self.cifar100_dir = '../cifar/cifar-100-python/'
+            self.cifar10_dir = '..//cifar//cifar-10-python//'
+            self.cifar100_dir = '..//cifar//cifar-100-python//'
             self.num_labels = 110
             self.labels_per_task = labels_per_task
             self.generate_cifar_tuning(include_cifar10, include_all)
@@ -112,7 +112,7 @@ class Stimulus:
         labels = np.reshape(np.array(x[b'fine_labels']),(-1,1))
 
         # Add the training images and labels to arrays
-        self.train_images = np.vstack((self.train_images, x[b'data'])) if self.train_images.size else np.array(images)
+        self.train_images = np.vstack((self.train_images, x[b'data'])) if self.train_images.size else np.array(x[b'data'])
         self.train_labels = np.vstack((self.train_labels, labels)) if self.train_labels.size else np.array(labels)
 
         # Load CIFAR-100 testing data
@@ -120,7 +120,7 @@ class Stimulus:
         labels = np.reshape(np.array(x[b'fine_labels']),(-1,1))
 
         # Add the testing images and labels to arrays
-        self.test_images = np.vstack((self.test_images, x[b'data']))  if self.test_images.size else np.array(images)
+        self.test_images = np.vstack((self.test_images, x[b'data']))  if self.test_images.size else np.array(x[b'data'])
         self.test_labels = np.vstack((self.test_labels, labels))  if self.test_labels.size else np.array(labels)
 
         if include_all:
@@ -186,7 +186,17 @@ class Stimulus:
                 else:
                     k = self.train_labels[ind[q[i]]][0]%self.labels_per_task
                 batch_labels[i,k] = 1
-                batch_data[i,:] = np.float32(np.reshape(self.train_images[ind[q[i]], :],(1,32,32,3), order='F'))/255
+                #print(self.train_images.shape)
+                # if not self.train_images:
+                #     print("Error: train_images is empty")
+                # else:
+                #     #print("train_images has size", self.train_images[0].size)
+                #     #print(self.train_images)
+                # print(type(self.train_images))
+                # print(self.train_images.shape)
+                # print(self.train_images.ndim)
+                # print(self.train_images)
+                batch_data[i,:] = np.float32(np.reshape(self.train_images[ind[q[i]], :], (1,32,32,3), order='F'))/255
 
         # Return images, labels, and masks
         return batch_data, batch_labels, mask

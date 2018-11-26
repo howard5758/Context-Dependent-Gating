@@ -1,0 +1,92 @@
+
+--> Loading parameters...
+--> Parameters successfully loaded.
+
+CIFAR - Synaptic Stabilization = SI - Gating = 80%
+Updating: n_tasks --> 20
+Updating: task --> cifar
+Updating: drop_keep_pct --> 0.5
+Updating: n_train_batches --> 977
+Updating: multihead --> False
+Updating: input_drop_keep_pct --> 1.0
+Updating: layer_dims --> [4096, 1000, 1000, 5]
+Updating: save_dir --> ./savedir/
+Updating: gate_pct --> 0.8
+Updating: input_drop_keep_pct --> 1.0
+Updating: gating_type --> partial
+Updating: omega_c --> 0.75
+Updating: stabilization --> EWC
+Updating: omega_xi --> 0.01
+Updating: train_convolutional_layers --> False
+Program starts
+Cuda GPI id is 0
+Convolutional layers has been trained before, weights will be loaded
+
+Running model.
+
+CIFAR shapes: (10000, 1) (50000, 1)
+conv_weights has been loaded from ./savedir/cifar_conv_weights.pkl
+Input condition has been applied
+Iter:  0 Loss:  1.609296 Aux Loss:  0.0
+Iter:  500 Loss:  0.006835752 Aux Loss:  0.0
+Task: 0 Time: 80.52944421768188 Mean: 0.8542968750000001  First: 0.8542968750000001  Last: 0.8542968750000001
+Iter:  0 Loss:  10.437347 Aux Loss:  0.0
+Iter:  500 Loss:  0.0065594865 Aux Loss:  0.0006511869
+Task: 1 Time: 70.62596249580383 Mean: 0.562109375  First: 0.23046875  Last: 0.89375
+Iter:  0 Loss:  7.674991 Aux Loss:  0.0
+Iter:  500 Loss:  0.006759967 Aux Loss:  0.0016619957
+Task: 2 Time: 70.92113661766052 Mean: 0.48919270833333334  First: 0.30234374999999997  Last: 0.871484375
+Iter:  0 Loss:  8.110624 Aux Loss:  0.0
+Iter:  500 Loss:  0.025167802 Aux Loss:  0.0039168294
+Task: 3 Time: 77.36096692085266 Mean: 0.34833984375  First: 0.131640625  Last: 0.8097656249999999
+Iter:  0 Loss:  14.154874 Aux Loss:  0.0
+Iter:  500 Loss:  0.0038882243 Aux Loss:  0.006239932
+Task: 4 Time: 80.76434111595154 Mean: 0.37859375  First: 0.158203125  Last: 0.94453125
+Iter:  0 Loss:  6.467802 Aux Loss:  0.0
+Iter:  500 Loss:  0.023384279 Aux Loss:  0.008203355
+Task: 5 Time: 80.82810592651367 Mean: 0.39980468750000003  First: 0.26171875  Last: 0.81484375
+Iter:  0 Loss:  8.415441 Aux Loss:  0.0
+Iter:  500 Loss:  0.038580395 Aux Loss:  0.013865549
+Task: 6 Time: 81.11062574386597 Mean: 0.3579241071428571  First: 0.19218749999999998  Last: 0.857421875
+Iter:  0 Loss:  10.234045 Aux Loss:  0.0
+Iter:  500 Loss:  0.052760415 Aux Loss:  0.020866983
+Task: 7 Time: 81.34323787689209 Mean: 0.307763671875  First: 0.21015625000000002  Last: 0.855859375
+Iter:  0 Loss:  8.292234 Aux Loss:  0.0
+Iter:  500 Loss:  0.12589127 Aux Loss:  0.025661701
+Task: 8 Time: 81.59283900260925 Mean: 0.34861111111111115  First: 0.34414062500000003  Last: 0.8542968750000001
+Iter:  0 Loss:  8.717228 Aux Loss:  0.0
+Iter:  500 Loss:  0.042607404 Aux Loss:  0.023455024
+Task: 9 Time: 81.83812189102173 Mean: 0.3004296875  First: 0.183984375  Last: 0.919921875
+Iter:  0 Loss:  6.1702843 Aux Loss:  0.0
+Iter:  500 Loss:  0.035508636 Aux Loss:  0.023997195
+Task: 10 Time: 82.1309814453125 Mean: 0.317862215909091  First: 0.04335937499999999  Last: 0.8980468750000001
+Iter:  0 Loss:  9.396692 Aux Loss:  0.0
+Iter:  500 Loss:  0.085146986 Aux Loss:  0.033308998
+Task: 11 Time: 82.31350231170654 Mean: 0.26507161458333334  First: 0.17070312499999998  Last: 0.8703125
+Iter:  0 Loss:  8.91888 Aux Loss:  0.0
+Iter:  500 Loss:  0.046049234 Aux Loss:  0.034926854
+Task: 12 Time: 82.5615782737732 Mean: 0.29477163461538464  First: 0.284375  Last: 0.8984375000000001
+Iter:  0 Loss:  10.3998165 Aux Loss:  0.0
+Iter:  500 Loss:  0.05993607 Aux Loss:  0.04168482
+Task: 13 Time: 82.56203031539917 Mean: 0.30496651785714285  First: 0.11484375  Last: 0.8589843750000001
+Iter:  0 Loss:  12.089825 Aux Loss:  0.0
+Iter:  500 Loss:  0.05344981 Aux Loss:  0.0468556
+Task: 14 Time: 80.15699744224548 Mean: 0.27710937500000005  First: 0.37148437500000003  Last: 0.8449218750000002
+Iter:  0 Loss:  7.5648117 Aux Loss:  0.0
+Iter:  500 Loss:  0.08778906 Aux Loss:  0.05576663
+Task: 15 Time: 80.37406206130981 Mean: 0.247314453125  First: 0.155859375  Last: 0.8027343750000001
+Iter:  0 Loss:  7.046115 Aux Loss:  0.0
+Iter:  500 Loss:  0.059242427 Aux Loss:  0.046273407
+Task: 16 Time: 80.75023984909058 Mean: 0.24356617647058823  First: 0.07890625  Last: 0.88125
+Iter:  0 Loss:  11.803544 Aux Loss:  0.0
+Iter:  500 Loss:  0.07422425 Aux Loss:  0.061390862
+Task: 17 Time: 81.04905104637146 Mean: 0.2577690972222222  First: 0.17695312500000002  Last: 0.87265625
+Iter:  0 Loss:  8.42832 Aux Loss:  0.0
+Iter:  500 Loss:  0.03796217 Aux Loss:  0.062072333
+Task: 18 Time: 81.21654415130615 Mean: 0.25242598684210527  First: 0.243359375  Last: 0.8972656250000001
+Iter:  0 Loss:  8.72721 Aux Loss:  0.0
+Iter:  500 Loss:  0.0185805 Aux Loss:  0.071789406
+Task: 19 Time: 81.46891641616821 Mean: 0.23947265624999997  First: 0.12734374999999998  Last: 0.88125
+
+Model execution complete.
+cifar_SI_partial_EWC finished, took 1637.9842643737793 seconds

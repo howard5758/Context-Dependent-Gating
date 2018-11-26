@@ -1,0 +1,938 @@
+(py35) C:\Users\zhaoz\Desktop\UChicago\Autumn2018\CMSC 35200 Deep Learning System\Project\Context-Dependent-Gating-FeedForward>python run_models.py
+
+--> Loading parameters...
+--> Parameters successfully loaded.
+
+MNIST - Synaptic Stabilization = SI - Gating = 80%
+Updating: input_drop_keep_pct --> 1.0
+Updating: task --> mnist
+Updating: n_train_batches --> 3906
+Updating: drop_keep_pct --> 0.5
+Updating: n_tasks --> 100
+Updating: layer_dims --> [784, 2000, 2000, 10]
+Updating: save_dir --> ./savedir/
+Updating: multihead --> False
+Updating: input_drop_keep_pct --> 0.8
+Updating: gate_pct --> 0.8
+Updating: gating_type --> partial
+Updating: omega_c --> 0.035
+Updating: stabilization --> pathint
+Updating: omega_xi --> 0.01
+Program starts
+Cuda GPI id is 0
+Convolutional layers has been trained before, weights will be loaded
+
+Running model.
+
+Input condition has been applied
+WARNING:tensorflow:From C:\Users\zhaoz\Desktop\UChicago\Autumn2018\CMSC 35200 Deep Learning System\Project\Context-Dependent-Gating-FeedForward\model.py:188: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See `tf.nn.softmax_cross_entropy_with_logits_v2`.
+
+Iter:  0 Loss:  2.3020728 Aux Loss:  0.0
+Iter:  500 Loss:  0.07922568 Aux Loss:  0.0
+Iter:  1000 Loss:  0.0801279 Aux Loss:  0.0
+Iter:  1500 Loss:  0.077341884 Aux Loss:  0.0
+Iter:  2000 Loss:  0.043390017 Aux Loss:  0.0
+Iter:  2500 Loss:  0.022408443 Aux Loss:  0.0
+Iter:  3000 Loss:  0.07801741 Aux Loss:  0.0
+Iter:  3500 Loss:  0.026776308 Aux Loss:  0.0
+Task: 0 Time: 120.24933099746704 Mean: 0.982421875  First: 0.982421875  Last: 0.982421875
+Iter:  0 Loss:  5.9121294 Aux Loss:  0.0
+Iter:  500 Loss:  0.14521661 Aux Loss:  0.030210152
+Iter:  1000 Loss:  0.088835984 Aux Loss:  0.03099774
+Iter:  1500 Loss:  0.042554438 Aux Loss:  0.03150579
+Iter:  2000 Loss:  0.06106802 Aux Loss:  0.031637542
+Iter:  2500 Loss:  0.040783882 Aux Loss:  0.031473722
+Iter:  3000 Loss:  0.05872958 Aux Loss:  0.03149626
+Iter:  3500 Loss:  0.085632086 Aux Loss:  0.031401165
+Task: 1 Time: 118.29879260063171 Mean: 0.9814453125  First: 0.98046875  Last: 0.982421875
+Iter:  0 Loss:  4.3986826 Aux Loss:  0.0
+Iter:  500 Loss:  0.19849141 Aux Loss:  0.052286003
+Iter:  1000 Loss:  0.082680486 Aux Loss:  0.05129088
+Iter:  1500 Loss:  0.079064004 Aux Loss:  0.0504525
+Iter:  2000 Loss:  0.19849898 Aux Loss:  0.050030366
+Iter:  2500 Loss:  0.052210677 Aux Loss:  0.04927213
+Iter:  3000 Loss:  0.050793987 Aux Loss:  0.04877737
+Iter:  3500 Loss:  0.05198907 Aux Loss:  0.048117235
+Task: 2 Time: 126.23288536071777 Mean: 0.982421875  First: 0.98046875  Last: 0.9835937499999999
+Iter:  0 Loss:  4.155813 Aux Loss:  0.0
+Iter:  500 Loss:  0.122481175 Aux Loss:  0.069898546
+Iter:  1000 Loss:  0.11408847 Aux Loss:  0.0666983
+Iter:  1500 Loss:  0.13945156 Aux Loss:  0.06449978
+Iter:  2000 Loss:  0.09497307 Aux Loss:  0.06312399
+Iter:  2500 Loss:  0.09198155 Aux Loss:  0.061770547
+Iter:  3000 Loss:  0.04221048 Aux Loss:  0.060920242
+Iter:  3500 Loss:  0.03265799 Aux Loss:  0.059806477
+Task: 3 Time: 127.84374213218689 Mean: 0.97890625  First: 0.9695312500000001  Last: 0.980859375
+Iter:  0 Loss:  4.074982 Aux Loss:  0.0
+Iter:  500 Loss:  0.10855485 Aux Loss:  0.086991325
+Iter:  1000 Loss:  0.10830153 Aux Loss:  0.08083254
+Iter:  1500 Loss:  0.10329474 Aux Loss:  0.07770293
+Iter:  2000 Loss:  0.108868726 Aux Loss:  0.07575536
+Iter:  2500 Loss:  0.065277256 Aux Loss:  0.074160755
+Iter:  3000 Loss:  0.0447108 Aux Loss:  0.072331816
+Iter:  3500 Loss:  0.103510484 Aux Loss:  0.0720118
+Task: 4 Time: 127.0153579711914 Mean: 0.9747656249999999  First: 0.95703125  Last: 0.9816406249999998
+Iter:  0 Loss:  4.1339464 Aux Loss:  0.0
+Iter:  500 Loss:  0.14557497 Aux Loss:  0.09948223
+Iter:  1000 Loss:  0.13692072 Aux Loss:  0.092666805
+Iter:  1500 Loss:  0.09978956 Aux Loss:  0.08824106
+Iter:  2000 Loss:  0.12913123 Aux Loss:  0.08538405
+Iter:  2500 Loss:  0.096226625 Aux Loss:  0.08372972
+Iter:  3000 Loss:  0.0939506 Aux Loss:  0.081993975
+Iter:  3500 Loss:  0.06849867 Aux Loss:  0.08040884
+Task: 5 Time: 127.08646583557129 Mean: 0.9696614583333333  First: 0.9324218749999998  Last: 0.9812500000000001
+Iter:  0 Loss:  3.6654272 Aux Loss:  0.0
+Iter:  500 Loss:  0.14649916 Aux Loss:  0.117366955
+Iter:  1000 Loss:  0.09866219 Aux Loss:  0.1058866
+Iter:  1500 Loss:  0.069018744 Aux Loss:  0.10103241
+Iter:  2000 Loss:  0.12341137 Aux Loss:  0.09667982
+Iter:  2500 Loss:  0.10756293 Aux Loss:  0.09500796
+Iter:  3000 Loss:  0.09759542 Aux Loss:  0.0928356
+Iter:  3500 Loss:  0.12120783 Aux Loss:  0.09141733
+Task: 6 Time: 127.1740562915802 Mean: 0.9706473214285715  First: 0.930078125  Last: 0.978125
+Iter:  0 Loss:  3.8226075 Aux Loss:  0.0
+Iter:  500 Loss:  0.10829604 Aux Loss:  0.12954536
+Iter:  1000 Loss:  0.16158435 Aux Loss:  0.117199615
+Iter:  1500 Loss:  0.12144114 Aux Loss:  0.110608414
+Iter:  2000 Loss:  0.08006117 Aux Loss:  0.10677379
+Iter:  2500 Loss:  0.10054299 Aux Loss:  0.10537243
+Iter:  3000 Loss:  0.049609255 Aux Loss:  0.10326947
+Iter:  3500 Loss:  0.08991208 Aux Loss:  0.10144692
+Task: 7 Time: 127.11545848846436 Mean: 0.970947265625  First: 0.929296875  Last: 0.9781249999999999
+Iter:  0 Loss:  4.527274 Aux Loss:  0.0
+Iter:  500 Loss:  0.13573988 Aux Loss:  0.1369136
+Iter:  1000 Loss:  0.18945491 Aux Loss:  0.122998044
+Iter:  1500 Loss:  0.089823335 Aux Loss:  0.117456555
+Iter:  2000 Loss:  0.12934387 Aux Loss:  0.11388921
+Iter:  2500 Loss:  0.103474736 Aux Loss:  0.11120705
+Iter:  3000 Loss:  0.085204475 Aux Loss:  0.10850488
+Iter:  3500 Loss:  0.15781838 Aux Loss:  0.107145295
+Task: 8 Time: 127.22100806236267 Mean: 0.9642795138888888  First: 0.889453125  Last: 0.9808593750000001
+Iter:  0 Loss:  4.0032086 Aux Loss:  0.0
+Iter:  500 Loss:  0.24847469 Aux Loss:  0.14697187
+Iter:  1000 Loss:  0.15797861 Aux Loss:  0.13178909
+Iter:  1500 Loss:  0.109067455 Aux Loss:  0.123920955
+Iter:  2000 Loss:  0.11051369 Aux Loss:  0.1205117
+Iter:  2500 Loss:  0.114474334 Aux Loss:  0.11629044
+Iter:  3000 Loss:  0.06320861 Aux Loss:  0.115053914
+Iter:  3500 Loss:  0.15121739 Aux Loss:  0.1133496
+Task: 9 Time: 127.09209895133972 Mean: 0.9632421875  First: 0.87734375  Last: 0.9828125000000001
+Iter:  0 Loss:  4.266588 Aux Loss:  0.0
+Iter:  500 Loss:  0.17057487 Aux Loss:  0.15379119
+Iter:  1000 Loss:  0.1905321 Aux Loss:  0.13713495
+Iter:  1500 Loss:  0.14163405 Aux Loss:  0.12816921
+Iter:  2000 Loss:  0.13838105 Aux Loss:  0.12405401
+Iter:  2500 Loss:  0.14322576 Aux Loss:  0.12125806
+Iter:  3000 Loss:  0.09971103 Aux Loss:  0.11836973
+Iter:  3500 Loss:  0.09477147 Aux Loss:  0.11758881
+Task: 10 Time: 127.37415885925293 Mean: 0.9634943181818181  First: 0.8980468749999999  Last: 0.9753906250000001
+Iter:  0 Loss:  3.8703165 Aux Loss:  0.0
+Iter:  500 Loss:  0.124670565 Aux Loss:  0.16310072
+Iter:  1000 Loss:  0.19438583 Aux Loss:  0.14573066
+Iter:  1500 Loss:  0.19062987 Aux Loss:  0.13757735
+Iter:  2000 Loss:  0.09883054 Aux Loss:  0.13312978
+Iter:  2500 Loss:  0.15316711 Aux Loss:  0.12857251
+Iter:  3000 Loss:  0.14311817 Aux Loss:  0.12707758
+Iter:  3500 Loss:  0.10001626 Aux Loss:  0.12629531
+Task: 11 Time: 127.27344870567322 Mean: 0.9616861979166668  First: 0.8621093750000001  Last: 0.983203125
+Iter:  0 Loss:  3.868188 Aux Loss:  0.0
+Iter:  500 Loss:  0.18906353 Aux Loss:  0.16765979
+Iter:  1000 Loss:  0.18878302 Aux Loss:  0.15082745
+Iter:  1500 Loss:  0.16755162 Aux Loss:  0.14052002
+Iter:  2000 Loss:  0.09351214 Aux Loss:  0.13785231
+Iter:  2500 Loss:  0.12826091 Aux Loss:  0.13190855
+Iter:  3000 Loss:  0.11437128 Aux Loss:  0.13167067
+Iter:  3500 Loss:  0.13607837 Aux Loss:  0.12987106
+Task: 12 Time: 127.28994250297546 Mean: 0.9609975961538463  First: 0.8660156250000001  Last: 0.9773437499999998
+Iter:  0 Loss:  4.608993 Aux Loss:  0.0
+Iter:  500 Loss:  0.25695089 Aux Loss:  0.17455609
+Iter:  1000 Loss:  0.09339973 Aux Loss:  0.15786915
+Iter:  1500 Loss:  0.15042658 Aux Loss:  0.14918803
+Iter:  2000 Loss:  0.15342818 Aux Loss:  0.14323354
+Iter:  2500 Loss:  0.114372134 Aux Loss:  0.13903034
+Iter:  3000 Loss:  0.08854405 Aux Loss:  0.13865575
+Iter:  3500 Loss:  0.21002197 Aux Loss:  0.138248
+Task: 13 Time: 127.4985716342926 Mean: 0.9588727678571429  First: 0.8480468750000001  Last: 0.96796875
+Iter:  0 Loss:  4.5480666 Aux Loss:  0.0
+Iter:  500 Loss:  0.12414266 Aux Loss:  0.18327852
+Iter:  1000 Loss:  0.12425242 Aux Loss:  0.16448939
+Iter:  1500 Loss:  0.17864011 Aux Loss:  0.15646197
+Iter:  2000 Loss:  0.12114051 Aux Loss:  0.15115072
+Iter:  2500 Loss:  0.17328028 Aux Loss:  0.14662708
+Iter:  3000 Loss:  0.12918296 Aux Loss:  0.14433628
+Iter:  3500 Loss:  0.07966371 Aux Loss:  0.14346664
+Task: 14 Time: 127.46885371208191 Mean: 0.9580989583333335  First: 0.844140625  Last: 0.9718749999999999
+Iter:  0 Loss:  3.474771 Aux Loss:  0.0
+Iter:  500 Loss:  0.18218562 Aux Loss:  0.19208352
+Iter:  1000 Loss:  0.17604145 Aux Loss:  0.17051108
+Iter:  1500 Loss:  0.15206881 Aux Loss:  0.16074249
+Iter:  2000 Loss:  0.10704916 Aux Loss:  0.15435617
+Iter:  2500 Loss:  0.15310073 Aux Loss:  0.1509437
+Iter:  3000 Loss:  0.16456163 Aux Loss:  0.14890794
+Iter:  3500 Loss:  0.13045858 Aux Loss:  0.14805606
+Task: 15 Time: 127.56407952308655 Mean: 0.95087890625  First: 0.785546875  Last: 0.9785156249999999
+Iter:  0 Loss:  3.7231758 Aux Loss:  0.0
+Iter:  500 Loss:  0.21477401 Aux Loss:  0.19431855
+Iter:  1000 Loss:  0.10642889 Aux Loss:  0.171807
+Iter:  1500 Loss:  0.12267147 Aux Loss:  0.164743
+Iter:  2000 Loss:  0.152823 Aux Loss:  0.16048472
+Iter:  2500 Loss:  0.13031414 Aux Loss:  0.15635894
+Iter:  3000 Loss:  0.19793588 Aux Loss:  0.15423132
+Iter:  3500 Loss:  0.16855735 Aux Loss:  0.15499383
+Task: 16 Time: 127.57683038711548 Mean: 0.9478170955882352  First: 0.732421875  Last: 0.9761718749999999
+Iter:  0 Loss:  3.5659518 Aux Loss:  0.0
+Iter:  500 Loss:  0.19526926 Aux Loss:  0.20348969
+Iter:  1000 Loss:  0.24514607 Aux Loss:  0.17808585
+Iter:  1500 Loss:  0.118232 Aux Loss:  0.16677327
+Iter:  2000 Loss:  0.15188792 Aux Loss:  0.16283089
+Iter:  2500 Loss:  0.20181987 Aux Loss:  0.16051416
+Iter:  3000 Loss:  0.14774302 Aux Loss:  0.15722713
+Iter:  3500 Loss:  0.15288594 Aux Loss:  0.15883581
+Task: 17 Time: 128.00380063056946 Mean: 0.9475260416666667  First: 0.75390625  Last: 0.9703125
+Iter:  0 Loss:  3.9269829 Aux Loss:  0.0
+Iter:  500 Loss:  0.18514226 Aux Loss:  0.2058705
+Iter:  1000 Loss:  0.19784689 Aux Loss:  0.17910098
+Iter:  1500 Loss:  0.15682535 Aux Loss:  0.16844994
+Iter:  2000 Loss:  0.13401766 Aux Loss:  0.16696058
+Iter:  2500 Loss:  0.20450929 Aux Loss:  0.16431262
+Iter:  3000 Loss:  0.1296877 Aux Loss:  0.16023368
+Iter:  3500 Loss:  0.15511695 Aux Loss:  0.16042316
+Task: 18 Time: 127.9177303314209 Mean: 0.9448601973684211  First: 0.7546875  Last: 0.972265625
+Iter:  0 Loss:  3.7610474 Aux Loss:  0.0
+Iter:  500 Loss:  0.1487967 Aux Loss:  0.21177319
+Iter:  1000 Loss:  0.20610148 Aux Loss:  0.18509915
+Iter:  1500 Loss:  0.16127 Aux Loss:  0.17535251
+Iter:  2000 Loss:  0.13128938 Aux Loss:  0.17053132
+Iter:  2500 Loss:  0.11716409 Aux Loss:  0.1675882
+Iter:  3000 Loss:  0.18354754 Aux Loss:  0.16448966
+Iter:  3500 Loss:  0.18598281 Aux Loss:  0.16193233
+Task: 19 Time: 127.9844000339508 Mean: 0.9424023437499999  First: 0.73671875  Last: 0.96953125
+Iter:  0 Loss:  4.1443977 Aux Loss:  0.0
+Iter:  500 Loss:  0.14676891 Aux Loss:  0.20868082
+Iter:  1000 Loss:  0.10818869 Aux Loss:  0.18357907
+Iter:  1500 Loss:  0.20501176 Aux Loss:  0.17321192
+Iter:  2000 Loss:  0.17726447 Aux Loss:  0.16866884
+Iter:  2500 Loss:  0.16014577 Aux Loss:  0.16751635
+Iter:  3000 Loss:  0.15543596 Aux Loss:  0.16712832
+Iter:  3500 Loss:  0.093498275 Aux Loss:  0.16291985
+Task: 20 Time: 128.08714866638184 Mean: 0.939174107142857  First: 0.648828125  Last: 0.9703125000000001
+Iter:  0 Loss:  3.7471378 Aux Loss:  0.0
+Iter:  500 Loss:  0.21990275 Aux Loss:  0.22177358
+Iter:  1000 Loss:  0.2687772 Aux Loss:  0.19508149
+Iter:  1500 Loss:  0.23330364 Aux Loss:  0.1864695
+Iter:  2000 Loss:  0.14740977 Aux Loss:  0.17894623
+Iter:  2500 Loss:  0.15048163 Aux Loss:  0.17764257
+Iter:  3000 Loss:  0.18617114 Aux Loss:  0.17607959
+Iter:  3500 Loss:  0.1731993 Aux Loss:  0.17380969
+Task: 21 Time: 127.91921782493591 Mean: 0.938955965909091  First: 0.7156250000000001  Last: 0.96875
+Iter:  0 Loss:  4.044865 Aux Loss:  0.0
+Iter:  500 Loss:  0.15791066 Aux Loss:  0.21974078
+Iter:  1000 Loss:  0.15179555 Aux Loss:  0.191737
+Iter:  1500 Loss:  0.15609331 Aux Loss:  0.18227912
+Iter:  2000 Loss:  0.2644812 Aux Loss:  0.17920779
+Iter:  2500 Loss:  0.12807454 Aux Loss:  0.17394562
+Iter:  3000 Loss:  0.17054516 Aux Loss:  0.17399415
+Iter:  3500 Loss:  0.18226531 Aux Loss:  0.16958469
+Task: 22 Time: 127.98202991485596 Mean: 0.9404211956521739  First: 0.721875  Last: 0.97109375
+Iter:  0 Loss:  3.7165055 Aux Loss:  0.0
+Iter:  500 Loss:  0.22491872 Aux Loss:  0.22427347
+Iter:  1000 Loss:  0.21751098 Aux Loss:  0.1994481
+Iter:  1500 Loss:  0.18866159 Aux Loss:  0.19003086
+Iter:  2000 Loss:  0.19983046 Aux Loss:  0.1850884
+Iter:  2500 Loss:  0.1772046 Aux Loss:  0.18283165
+Iter:  3000 Loss:  0.18375687 Aux Loss:  0.17988251
+Iter:  3500 Loss:  0.16846576 Aux Loss:  0.17968227
+Task: 23 Time: 128.0583872795105 Mean: 0.935546875  First: 0.66484375  Last: 0.9683593750000001
+Iter:  0 Loss:  4.4374905 Aux Loss:  0.0
+Iter:  500 Loss:  0.16761696 Aux Loss:  0.22982684
+Iter:  1000 Loss:  0.23903516 Aux Loss:  0.20423715
+Iter:  1500 Loss:  0.23470974 Aux Loss:  0.19587001
+Iter:  2000 Loss:  0.21712776 Aux Loss:  0.18843758
+Iter:  2500 Loss:  0.17910929 Aux Loss:  0.18648443
+Iter:  3000 Loss:  0.26055372 Aux Loss:  0.18588209
+Iter:  3500 Loss:  0.19198161 Aux Loss:  0.18240005
+Task: 24 Time: 128.28282690048218 Mean: 0.9361406250000001  First: 0.703515625  Last: 0.9703125
+Iter:  0 Loss:  3.8730946 Aux Loss:  0.0
+Iter:  500 Loss:  0.22712448 Aux Loss:  0.22365646
+Iter:  1000 Loss:  0.21314533 Aux Loss:  0.19884042
+Iter:  1500 Loss:  0.20051083 Aux Loss:  0.18871908
+Iter:  2000 Loss:  0.14129089 Aux Loss:  0.18556075
+Iter:  2500 Loss:  0.18701544 Aux Loss:  0.18290424
+Iter:  3000 Loss:  0.1373788 Aux Loss:  0.18027169
+Iter:  3500 Loss:  0.23696843 Aux Loss:  0.17842746
+Task: 25 Time: 128.5611219406128 Mean: 0.9331430288461537  First: 0.6874999999999999  Last: 0.9624999999999999
+Iter:  0 Loss:  3.6907716 Aux Loss:  0.0
+Iter:  500 Loss:  0.18267904 Aux Loss:  0.23612094
+Iter:  1000 Loss:  0.18278994 Aux Loss:  0.21133326
+Iter:  1500 Loss:  0.24523169 Aux Loss:  0.19854331
+Iter:  2000 Loss:  0.20570892 Aux Loss:  0.19447991
+Iter:  2500 Loss:  0.2421894 Aux Loss:  0.19433415
+Iter:  3000 Loss:  0.20900999 Aux Loss:  0.19003274
+Iter:  3500 Loss:  0.206657 Aux Loss:  0.19062252
+Task: 26 Time: 128.32831525802612 Mean: 0.9319010416666667  First: 0.6769531249999999  Last: 0.9679687499999999
+Iter:  0 Loss:  3.59923 Aux Loss:  0.0
+Iter:  500 Loss:  0.13607183 Aux Loss:  0.2385885
+Iter:  1000 Loss:  0.17979252 Aux Loss:  0.21344571
+Iter:  1500 Loss:  0.1628733 Aux Loss:  0.20541753
+Iter:  2000 Loss:  0.15323566 Aux Loss:  0.19637111
+Iter:  2500 Loss:  0.21989852 Aux Loss:  0.19240549
+Iter:  3000 Loss:  0.19220054 Aux Loss:  0.19143292
+Iter:  3500 Loss:  0.20840144 Aux Loss:  0.19259445
+Task: 27 Time: 128.53097581863403 Mean: 0.9260184151785713  First: 0.6656250000000001  Last: 0.96953125
+Iter:  0 Loss:  4.5638084 Aux Loss:  0.0
+Iter:  500 Loss:  0.19373563 Aux Loss:  0.2458461
+Iter:  1000 Loss:  0.17496142 Aux Loss:  0.22107576
+Iter:  1500 Loss:  0.24667047 Aux Loss:  0.21033554
+Iter:  2000 Loss:  0.15446085 Aux Loss:  0.20602684
+Iter:  2500 Loss:  0.22369903 Aux Loss:  0.20062985
+Iter:  3000 Loss:  0.17486764 Aux Loss:  0.20229816
+Iter:  3500 Loss:  0.23850091 Aux Loss:  0.20013385
+Task: 28 Time: 128.59408688545227 Mean: 0.9242187500000001  First: 0.690625  Last: 0.96875
+Iter:  0 Loss:  3.994956 Aux Loss:  0.0
+Iter:  500 Loss:  0.26430872 Aux Loss:  0.24347259
+Iter:  1000 Loss:  0.15069662 Aux Loss:  0.2173909
+Iter:  1500 Loss:  0.19343379 Aux Loss:  0.20600869
+Iter:  2000 Loss:  0.20483357 Aux Loss:  0.20271869
+Iter:  2500 Loss:  0.1909512 Aux Loss:  0.19943468
+Iter:  3000 Loss:  0.2060401 Aux Loss:  0.19522813
+Iter:  3500 Loss:  0.16679266 Aux Loss:  0.1986966
+Task: 29 Time: 128.48503017425537 Mean: 0.9185416666666666  First: 0.659375  Last: 0.966796875
+Iter:  0 Loss:  3.9482033 Aux Loss:  0.0
+Iter:  500 Loss:  0.13737302 Aux Loss:  0.25277117
+Iter:  1000 Loss:  0.25908253 Aux Loss:  0.22539623
+Iter:  1500 Loss:  0.31283605 Aux Loss:  0.21376361
+Iter:  2000 Loss:  0.19504118 Aux Loss:  0.20520398
+Iter:  2500 Loss:  0.20884913 Aux Loss:  0.20444055
+Iter:  3000 Loss:  0.2709712 Aux Loss:  0.20601167
+Iter:  3500 Loss:  0.103586085 Aux Loss:  0.20276216
+Task: 30 Time: 128.59307217597961 Mean: 0.9179309475806451  First: 0.72109375  Last: 0.9703125000000001
+Iter:  0 Loss:  3.7118878 Aux Loss:  0.0
+Iter:  500 Loss:  0.25469077 Aux Loss:  0.25571048
+Iter:  1000 Loss:  0.25993752 Aux Loss:  0.22106895
+Iter:  1500 Loss:  0.22230913 Aux Loss:  0.21315366
+Iter:  2000 Loss:  0.26102158 Aux Loss:  0.20807151
+Iter:  2500 Loss:  0.17754722 Aux Loss:  0.20514467
+Iter:  3000 Loss:  0.18702969 Aux Loss:  0.20230365
+Iter:  3500 Loss:  0.14461356 Aux Loss:  0.20211042
+Task: 31 Time: 128.72389364242554 Mean: 0.913037109375  First: 0.690625  Last: 0.966015625
+Iter:  0 Loss:  4.0809693 Aux Loss:  0.0
+Iter:  500 Loss:  0.31645113 Aux Loss:  0.2554663
+Iter:  1000 Loss:  0.26485217 Aux Loss:  0.2294655
+Iter:  1500 Loss:  0.2352578 Aux Loss:  0.22003949
+Iter:  2000 Loss:  0.24114698 Aux Loss:  0.21395272
+Iter:  2500 Loss:  0.25579944 Aux Loss:  0.21218657
+Iter:  3000 Loss:  0.2501137 Aux Loss:  0.2095324
+Iter:  3500 Loss:  0.17688164 Aux Loss:  0.20854896
+Task: 32 Time: 128.8005247116089 Mean: 0.9182291666666668  First: 0.7234375  Last: 0.96875
+Iter:  0 Loss:  3.559773 Aux Loss:  0.0
+Iter:  500 Loss:  0.3055862 Aux Loss:  0.2565908
+Iter:  1000 Loss:  0.23765174 Aux Loss:  0.23129255
+Iter:  1500 Loss:  0.20109373 Aux Loss:  0.2194097
+Iter:  2000 Loss:  0.25345472 Aux Loss:  0.2147302
+Iter:  2500 Loss:  0.18265489 Aux Loss:  0.21226378
+Iter:  3000 Loss:  0.21527904 Aux Loss:  0.21044414
+Iter:  3500 Loss:  0.20398244 Aux Loss:  0.20712581
+Task: 33 Time: 128.8186228275299 Mean: 0.9146829044117647  First: 0.7242187499999999  Last: 0.9632812500000001
+Iter:  0 Loss:  4.0703235 Aux Loss:  0.0
+Iter:  500 Loss:  0.2179617 Aux Loss:  0.25788966
+Iter:  1000 Loss:  0.20782873 Aux Loss:  0.22956815
+Iter:  1500 Loss:  0.19849454 Aux Loss:  0.21986349
+Iter:  2000 Loss:  0.34139547 Aux Loss:  0.21354419
+Iter:  2500 Loss:  0.27980983 Aux Loss:  0.2121779
+Iter:  3000 Loss:  0.25747654 Aux Loss:  0.2111205
+Iter:  3500 Loss:  0.19463487 Aux Loss:  0.21159525
+Task: 34 Time: 128.84342288970947 Mean: 0.914408482142857  First: 0.6515625  Last: 0.9609375
+Iter:  0 Loss:  3.914688 Aux Loss:  0.0
+Iter:  500 Loss:  0.19031474 Aux Loss:  0.25708756
+Iter:  1000 Loss:  0.21087202 Aux Loss:  0.22859699
+Iter:  1500 Loss:  0.30042273 Aux Loss:  0.2187108
+Iter:  2000 Loss:  0.16629641 Aux Loss:  0.21778631
+Iter:  2500 Loss:  0.23549394 Aux Loss:  0.2134798
+Iter:  3000 Loss:  0.21291897 Aux Loss:  0.21160239
+Iter:  3500 Loss:  0.26114523 Aux Loss:  0.20941055
+Task: 35 Time: 128.81254816055298 Mean: 0.9093424479166666  First: 0.634375  Last: 0.9652343750000001
+Iter:  0 Loss:  3.5954137 Aux Loss:  0.0
+Iter:  500 Loss:  0.23767853 Aux Loss:  0.2612389
+Iter:  1000 Loss:  0.1710649 Aux Loss:  0.23853368
+Iter:  1500 Loss:  0.31596175 Aux Loss:  0.23096272
+Iter:  2000 Loss:  0.312164 Aux Loss:  0.21833698
+Iter:  2500 Loss:  0.29434213 Aux Loss:  0.21827392
+Iter:  3000 Loss:  0.26666808 Aux Loss:  0.21704642
+Iter:  3500 Loss:  0.18597196 Aux Loss:  0.22075948
+Task: 36 Time: 128.90690851211548 Mean: 0.9055848817567567  First: 0.6046874999999999  Last: 0.9632812499999999
+Iter:  0 Loss:  3.835421 Aux Loss:  0.0
+Iter:  500 Loss:  0.25374383 Aux Loss:  0.2646326
+Iter:  1000 Loss:  0.261804 Aux Loss:  0.2333212
+Iter:  1500 Loss:  0.21200663 Aux Loss:  0.22269191
+Iter:  2000 Loss:  0.22762087 Aux Loss:  0.22079471
+Iter:  2500 Loss:  0.2464752 Aux Loss:  0.21714653
+Iter:  3000 Loss:  0.1618257 Aux Loss:  0.21785416
+Iter:  3500 Loss:  0.19542849 Aux Loss:  0.21357596
+Task: 37 Time: 128.95279145240784 Mean: 0.8997738486842105  First: 0.591796875  Last: 0.962109375
+Iter:  0 Loss:  3.8098745 Aux Loss:  0.0
+Iter:  500 Loss:  0.24874792 Aux Loss:  0.26688755
+Iter:  1000 Loss:  0.2957057 Aux Loss:  0.23781508
+Iter:  1500 Loss:  0.2787604 Aux Loss:  0.2262049
+Iter:  2000 Loss:  0.37749353 Aux Loss:  0.22369736
+Iter:  2500 Loss:  0.17067392 Aux Loss:  0.22074497
+Iter:  3000 Loss:  0.24945225 Aux Loss:  0.21623524
+Iter:  3500 Loss:  0.21630456 Aux Loss:  0.21806727
+Task: 38 Time: 128.98380851745605 Mean: 0.905118189102564  First: 0.625  Last: 0.9609375
+Iter:  0 Loss:  3.863998 Aux Loss:  0.0
+Iter:  500 Loss:  0.2388431 Aux Loss:  0.2686458
+Iter:  1000 Loss:  0.35097942 Aux Loss:  0.23946622
+Iter:  1500 Loss:  0.19162273 Aux Loss:  0.23191224
+Iter:  2000 Loss:  0.25506324 Aux Loss:  0.22740854
+Iter:  2500 Loss:  0.25959414 Aux Loss:  0.22394924
+Iter:  3000 Loss:  0.23505208 Aux Loss:  0.22110988
+Iter:  3500 Loss:  0.2193635 Aux Loss:  0.22083099
+Task: 39 Time: 129.23599791526794 Mean: 0.9033203125  First: 0.5828125000000001  Last: 0.9636718750000002
+Iter:  0 Loss:  3.6422627 Aux Loss:  0.0
+Iter:  500 Loss:  0.21001737 Aux Loss:  0.26985517
+Iter:  1000 Loss:  0.16066429 Aux Loss:  0.24242805
+Iter:  1500 Loss:  0.25577736 Aux Loss:  0.23350722
+Iter:  2000 Loss:  0.27870324 Aux Loss:  0.22743686
+Iter:  2500 Loss:  0.32173404 Aux Loss:  0.22623636
+Iter:  3000 Loss:  0.14399342 Aux Loss:  0.22563171
+Iter:  3500 Loss:  0.23937818 Aux Loss:  0.22356293
+Task: 40 Time: 129.3576078414917 Mean: 0.9038490853658536  First: 0.589453125  Last: 0.9640625
+Iter:  0 Loss:  3.7717338 Aux Loss:  0.0
+Iter:  500 Loss:  0.22113957 Aux Loss:  0.27594358
+Iter:  1000 Loss:  0.25073868 Aux Loss:  0.25153482
+Iter:  1500 Loss:  0.26652747 Aux Loss:  0.23802254
+Iter:  2000 Loss:  0.20808336 Aux Loss:  0.23664045
+Iter:  2500 Loss:  0.27122355 Aux Loss:  0.23371945
+Iter:  3000 Loss:  0.19277659 Aux Loss:  0.23108017
+Iter:  3500 Loss:  0.21670973 Aux Loss:  0.23405553
+Task: 41 Time: 129.40647101402283 Mean: 0.8981956845238097  First: 0.57734375  Last: 0.962890625
+Iter:  0 Loss:  3.762899 Aux Loss:  0.0
+Iter:  500 Loss:  0.31520075 Aux Loss:  0.2760006
+Iter:  1000 Loss:  0.2790232 Aux Loss:  0.24420625
+Iter:  1500 Loss:  0.18550183 Aux Loss:  0.23711194
+Iter:  2000 Loss:  0.18075266 Aux Loss:  0.23139329
+Iter:  2500 Loss:  0.2750231 Aux Loss:  0.22955573
+Iter:  3000 Loss:  0.25959122 Aux Loss:  0.22539492
+Iter:  3500 Loss:  0.2507094 Aux Loss:  0.2268684
+Task: 42 Time: 129.4690399169922 Mean: 0.8940588662790698  First: 0.62734375  Last: 0.9609375
+Iter:  0 Loss:  3.8387072 Aux Loss:  0.0
+Iter:  500 Loss:  0.33894202 Aux Loss:  0.28229913
+Iter:  1000 Loss:  0.26803875 Aux Loss:  0.2527866
+Iter:  1500 Loss:  0.32611185 Aux Loss:  0.2422369
+Iter:  2000 Loss:  0.26448455 Aux Loss:  0.2371193
+Iter:  2500 Loss:  0.25533798 Aux Loss:  0.235957
+Iter:  3000 Loss:  0.2422073 Aux Loss:  0.23344676
+Iter:  3500 Loss:  0.2687571 Aux Loss:  0.2314341
+Task: 43 Time: 129.65669345855713 Mean: 0.8909268465909093  First: 0.57265625  Last: 0.965625
+Iter:  0 Loss:  3.4224763 Aux Loss:  0.0
+Iter:  500 Loss:  0.34514606 Aux Loss:  0.28243664
+Iter:  1000 Loss:  0.2713816 Aux Loss:  0.2571669
+Iter:  1500 Loss:  0.30159703 Aux Loss:  0.24486145
+Iter:  2000 Loss:  0.28225374 Aux Loss:  0.23764321
+Iter:  2500 Loss:  0.22510424 Aux Loss:  0.23555091
+Iter:  3000 Loss:  0.34556335 Aux Loss:  0.23534018
+Iter:  3500 Loss:  0.17748635 Aux Loss:  0.23558477
+Task: 44 Time: 129.693354845047 Mean: 0.8885850694444445  First: 0.573828125  Last: 0.9546875
+Iter:  0 Loss:  3.5472314 Aux Loss:  0.0
+Iter:  500 Loss:  0.2661663 Aux Loss:  0.28414512
+Iter:  1000 Loss:  0.23476985 Aux Loss:  0.25896424
+Iter:  1500 Loss:  0.32544774 Aux Loss:  0.24906147
+Iter:  2000 Loss:  0.17370278 Aux Loss:  0.24161679
+Iter:  2500 Loss:  0.30080783 Aux Loss:  0.23761354
+Iter:  3000 Loss:  0.24271123 Aux Loss:  0.24280047
+Iter:  3500 Loss:  0.21090144 Aux Loss:  0.23459587
+Task: 45 Time: 129.90263891220093 Mean: 0.886124320652174  First: 0.5492187500000001  Last: 0.961328125
+Iter:  0 Loss:  3.741277 Aux Loss:  0.0
+Iter:  500 Loss:  0.38403946 Aux Loss:  0.28622505
+Iter:  1000 Loss:  0.21978803 Aux Loss:  0.26242143
+Iter:  1500 Loss:  0.23177612 Aux Loss:  0.2492937
+Iter:  2000 Loss:  0.17824498 Aux Loss:  0.24405167
+Iter:  2500 Loss:  0.27147314 Aux Loss:  0.23845254
+Iter:  3000 Loss:  0.21503112 Aux Loss:  0.23665728
+Iter:  3500 Loss:  0.1788602 Aux Loss:  0.23409787
+Task: 46 Time: 130.00744485855103 Mean: 0.8820229388297871  First: 0.5046875  Last: 0.95390625
+Iter:  0 Loss:  3.64292 Aux Loss:  0.0
+Iter:  500 Loss:  0.28003982 Aux Loss:  0.28886345
+Iter:  1000 Loss:  0.25054908 Aux Loss:  0.25569108
+Iter:  1500 Loss:  0.2618915 Aux Loss:  0.24599262
+Iter:  2000 Loss:  0.26001722 Aux Loss:  0.24327087
+Iter:  2500 Loss:  0.23946425 Aux Loss:  0.23962657
+Iter:  3000 Loss:  0.35093847 Aux Loss:  0.23453699
+Iter:  3500 Loss:  0.22510567 Aux Loss:  0.2350216
+Task: 47 Time: 130.03216457366943 Mean: 0.8813232421875  First: 0.5  Last: 0.9570312499999999
+Iter:  0 Loss:  3.5950217 Aux Loss:  0.0
+Iter:  500 Loss:  0.19053012 Aux Loss:  0.28637928
+Iter:  1000 Loss:  0.24578272 Aux Loss:  0.25794312
+Iter:  1500 Loss:  0.2557596 Aux Loss:  0.24587329
+Iter:  2000 Loss:  0.28503907 Aux Loss:  0.24143507
+Iter:  2500 Loss:  0.29434878 Aux Loss:  0.24120057
+Iter:  3000 Loss:  0.25416452 Aux Loss:  0.24255066
+Iter:  3500 Loss:  0.28118935 Aux Loss:  0.23696214
+Task: 48 Time: 130.2232494354248 Mean: 0.879830994897959  First: 0.523046875  Last: 0.9484375
+Iter:  0 Loss:  3.2467082 Aux Loss:  0.0
+Iter:  500 Loss:  0.27316695 Aux Loss:  0.2939419
+Iter:  1000 Loss:  0.25702327 Aux Loss:  0.26290956
+Iter:  1500 Loss:  0.18392307 Aux Loss:  0.24602711
+Iter:  2000 Loss:  0.31223366 Aux Loss:  0.24450359
+Iter:  2500 Loss:  0.283473 Aux Loss:  0.24159303
+Iter:  3000 Loss:  0.34984162 Aux Loss:  0.24032734
+Iter:  3500 Loss:  0.25636834 Aux Loss:  0.23887111
+Task: 49 Time: 129.88510727882385 Mean: 0.8724531250000002  First: 0.5796875000000001  Last: 0.959375
+Iter:  0 Loss:  4.1863027 Aux Loss:  0.0
+Iter:  500 Loss:  0.34172198 Aux Loss:  0.29839486
+Iter:  1000 Loss:  0.25355735 Aux Loss:  0.26665366
+Iter:  1500 Loss:  0.27321488 Aux Loss:  0.2545507
+Iter:  2000 Loss:  0.30453148 Aux Loss:  0.24849644
+Iter:  2500 Loss:  0.35130715 Aux Loss:  0.24676196
+Iter:  3000 Loss:  0.21931674 Aux Loss:  0.24337102
+Iter:  3500 Loss:  0.27699333 Aux Loss:  0.24454209
+Task: 50 Time: 130.0823848247528 Mean: 0.8709482230392157  First: 0.60078125  Last: 0.9601562499999999
+Iter:  0 Loss:  4.005848 Aux Loss:  0.0
+Iter:  500 Loss:  0.2597084 Aux Loss:  0.30441368
+Iter:  1000 Loss:  0.2682128 Aux Loss:  0.27153128
+Iter:  1500 Loss:  0.2542695 Aux Loss:  0.25762966
+Iter:  2000 Loss:  0.37898353 Aux Loss:  0.25151113
+Iter:  2500 Loss:  0.22175288 Aux Loss:  0.254435
+Iter:  3000 Loss:  0.22004032 Aux Loss:  0.2485108
+Iter:  3500 Loss:  0.28001735 Aux Loss:  0.24706219
+Task: 51 Time: 130.06240034103394 Mean: 0.8699368990384616  First: 0.621484375  Last: 0.9617187500000001
+Iter:  0 Loss:  3.4780805 Aux Loss:  0.0
+Iter:  500 Loss:  0.33726624 Aux Loss:  0.2906542
+Iter:  1000 Loss:  0.24698777 Aux Loss:  0.2632894
+Iter:  1500 Loss:  0.34389964 Aux Loss:  0.25094333
+Iter:  2000 Loss:  0.23704728 Aux Loss:  0.24554688
+Iter:  2500 Loss:  0.2387171 Aux Loss:  0.243487
+Iter:  3000 Loss:  0.29846033 Aux Loss:  0.24358697
+Iter:  3500 Loss:  0.38003707 Aux Loss:  0.24178645
+Task: 52 Time: 130.20348978042603 Mean: 0.8662293632075471  First: 0.578125  Last: 0.95625
+Iter:  0 Loss:  3.8004386 Aux Loss:  0.0
+Iter:  500 Loss:  0.26948807 Aux Loss:  0.29521424
+Iter:  1000 Loss:  0.22122079 Aux Loss:  0.26755887
+Iter:  1500 Loss:  0.24902247 Aux Loss:  0.25774217
+Iter:  2000 Loss:  0.339302 Aux Loss:  0.25462034
+Iter:  2500 Loss:  0.3053694 Aux Loss:  0.25392327
+Iter:  3000 Loss:  0.17615625 Aux Loss:  0.24993071
+Iter:  3500 Loss:  0.30777067 Aux Loss:  0.24871571
+Task: 53 Time: 130.48461890220642 Mean: 0.875021701388889  First: 0.6054687499999999  Last: 0.9550781250000001
+Iter:  0 Loss:  3.938643 Aux Loss:  0.0
+Iter:  500 Loss:  0.34086353 Aux Loss:  0.29908326
+Iter:  1000 Loss:  0.24483034 Aux Loss:  0.26765057
+Iter:  1500 Loss:  0.23353313 Aux Loss:  0.26201016
+Iter:  2000 Loss:  0.29428735 Aux Loss:  0.2530694
+Iter:  2500 Loss:  0.1972536 Aux Loss:  0.25064823
+Iter:  3000 Loss:  0.2659117 Aux Loss:  0.25051597
+Iter:  3500 Loss:  0.24845643 Aux Loss:  0.24818446
+Task: 54 Time: 130.48370480537415 Mean: 0.8637073863636362  First: 0.5968749999999999  Last: 0.9589843750000001
+Iter:  0 Loss:  3.6790738 Aux Loss:  0.0
+Iter:  500 Loss:  0.3837034 Aux Loss:  0.30196223
+Iter:  1000 Loss:  0.25112313 Aux Loss:  0.26604018
+Iter:  1500 Loss:  0.26458177 Aux Loss:  0.2584976
+Iter:  2000 Loss:  0.25467426 Aux Loss:  0.253357
+Iter:  2500 Loss:  0.40016228 Aux Loss:  0.25225064
+Iter:  3000 Loss:  0.29400158 Aux Loss:  0.25029925
+Iter:  3500 Loss:  0.22943059 Aux Loss:  0.24957906
+Task: 55 Time: 130.73434448242188 Mean: 0.8603445870535714  First: 0.5554687500000001  Last: 0.9535156250000001
+Iter:  0 Loss:  4.153485 Aux Loss:  0.0
+Iter:  500 Loss:  0.2114085 Aux Loss:  0.3124435
+Iter:  1000 Loss:  0.32778072 Aux Loss:  0.27878463
+Iter:  1500 Loss:  0.26769876 Aux Loss:  0.26593405
+Iter:  2000 Loss:  0.20254439 Aux Loss:  0.2587215
+Iter:  2500 Loss:  0.2557906 Aux Loss:  0.26148307
+Iter:  3000 Loss:  0.30445725 Aux Loss:  0.25445232
+Iter:  3500 Loss:  0.22063406 Aux Loss:  0.25586113
+Task: 56 Time: 130.6875605583191 Mean: 0.8668448464912281  First: 0.51015625  Last: 0.9546875
+Iter:  0 Loss:  3.805507 Aux Loss:  0.0
+Iter:  500 Loss:  0.2855188 Aux Loss:  0.30883542
+Iter:  1000 Loss:  0.42661723 Aux Loss:  0.27409622
+Iter:  1500 Loss:  0.3252938 Aux Loss:  0.2650117
+Iter:  2000 Loss:  0.26107964 Aux Loss:  0.25600523
+Iter:  2500 Loss:  0.2450323 Aux Loss:  0.25477135
+Iter:  3000 Loss:  0.20452331 Aux Loss:  0.25434458
+Iter:  3500 Loss:  0.24084873 Aux Loss:  0.25044364
+Task: 57 Time: 130.65745568275452 Mean: 0.8643521012931035  First: 0.5402343749999999  Last: 0.95
+Iter:  0 Loss:  3.5804908 Aux Loss:  0.0
+Iter:  500 Loss:  0.30042467 Aux Loss:  0.30606303
+Iter:  1000 Loss:  0.30942369 Aux Loss:  0.28034332
+Iter:  1500 Loss:  0.29240972 Aux Loss:  0.2660999
+Iter:  2000 Loss:  0.33028215 Aux Loss:  0.26323465
+Iter:  2500 Loss:  0.27873218 Aux Loss:  0.25841045
+Iter:  3000 Loss:  0.27455455 Aux Loss:  0.26055723
+Iter:  3500 Loss:  0.24982908 Aux Loss:  0.25742
+Task: 58 Time: 130.5842785835266 Mean: 0.8535023834745763  First: 0.530078125  Last: 0.9515625000000002
+Iter:  0 Loss:  3.8353925 Aux Loss:  0.0
+Iter:  500 Loss:  0.36294717 Aux Loss:  0.30927137
+Iter:  1000 Loss:  0.23530695 Aux Loss:  0.27492818
+Iter:  1500 Loss:  0.23750284 Aux Loss:  0.2694085
+Iter:  2000 Loss:  0.28166717 Aux Loss:  0.26287398
+Iter:  2500 Loss:  0.25992322 Aux Loss:  0.26431936
+Iter:  3000 Loss:  0.22126244 Aux Loss:  0.2576929
+Iter:  3500 Loss:  0.2936511 Aux Loss:  0.25574204
+Task: 59 Time: 130.7591574192047 Mean: 0.8496679687500001  First: 0.540625  Last: 0.95
+Iter:  0 Loss:  3.9696808 Aux Loss:  0.0
+Iter:  500 Loss:  0.28640413 Aux Loss:  0.30837134
+Iter:  1000 Loss:  0.24222617 Aux Loss:  0.28634503
+Iter:  1500 Loss:  0.24105918 Aux Loss:  0.26888162
+Iter:  2000 Loss:  0.327167 Aux Loss:  0.26404527
+Iter:  2500 Loss:  0.40247944 Aux Loss:  0.26282626
+Iter:  3000 Loss:  0.34607032 Aux Loss:  0.26431605
+Iter:  3500 Loss:  0.37871057 Aux Loss:  0.25980073
+Task: 60 Time: 130.94492959976196 Mean: 0.8545722336065575  First: 0.5261718750000001  Last: 0.95546875
+Iter:  0 Loss:  3.7516513 Aux Loss:  0.0
+Iter:  500 Loss:  0.25581613 Aux Loss:  0.31867298
+Iter:  1000 Loss:  0.31288236 Aux Loss:  0.2846236
+Iter:  1500 Loss:  0.35935843 Aux Loss:  0.2723606
+Iter:  2000 Loss:  0.19627139 Aux Loss:  0.26783353
+Iter:  2500 Loss:  0.3422069 Aux Loss:  0.2648016
+Iter:  3000 Loss:  0.2159658 Aux Loss:  0.2657931
+Iter:  3500 Loss:  0.24885266 Aux Loss:  0.26711142
+Task: 61 Time: 130.97648859024048 Mean: 0.8572769657258066  First: 0.553515625  Last: 0.95546875
+Iter:  0 Loss:  3.7164197 Aux Loss:  0.0
+Iter:  500 Loss:  0.33915347 Aux Loss:  0.32507616
+Iter:  1000 Loss:  0.27197093 Aux Loss:  0.28807497
+Iter:  1500 Loss:  0.30671898 Aux Loss:  0.2793335
+Iter:  2000 Loss:  0.27583024 Aux Loss:  0.2732344
+Iter:  2500 Loss:  0.33334914 Aux Loss:  0.26766106
+Iter:  3000 Loss:  0.292556 Aux Loss:  0.26472822
+Iter:  3500 Loss:  0.31922656 Aux Loss:  0.27019322
+Task: 62 Time: 131.03129696846008 Mean: 0.8546192956349206  First: 0.5859374999999999  Last: 0.9585937499999999
+Iter:  0 Loss:  3.497749 Aux Loss:  0.0
+Iter:  500 Loss:  0.29954758 Aux Loss:  0.3141781
+Iter:  1000 Loss:  0.23530836 Aux Loss:  0.2885793
+Iter:  1500 Loss:  0.38254604 Aux Loss:  0.27344382
+Iter:  2000 Loss:  0.3082288 Aux Loss:  0.26846543
+Iter:  2500 Loss:  0.23879382 Aux Loss:  0.26654792
+Iter:  3000 Loss:  0.302325 Aux Loss:  0.26241073
+Iter:  3500 Loss:  0.29772696 Aux Loss:  0.26471943
+Task: 63 Time: 130.9849956035614 Mean: 0.8509887695312499  First: 0.5640624999999999  Last: 0.9527343749999999
+Iter:  0 Loss:  3.8548975 Aux Loss:  0.0
+Iter:  500 Loss:  0.30830806 Aux Loss:  0.3132825
+Iter:  1000 Loss:  0.27407598 Aux Loss:  0.2926788
+Iter:  1500 Loss:  0.21267082 Aux Loss:  0.28013414
+Iter:  2000 Loss:  0.20574486 Aux Loss:  0.27256465
+Iter:  2500 Loss:  0.37026453 Aux Loss:  0.26444486
+Iter:  3000 Loss:  0.30565894 Aux Loss:  0.26461917
+Iter:  3500 Loss:  0.350406 Aux Loss:  0.26854587
+Task: 64 Time: 130.92218613624573 Mean: 0.8428365384615385  First: 0.5703125  Last: 0.948828125
+Iter:  0 Loss:  3.6726747 Aux Loss:  0.0
+Iter:  500 Loss:  0.29336005 Aux Loss:  0.32220456
+Iter:  1000 Loss:  0.30586746 Aux Loss:  0.29044703
+Iter:  1500 Loss:  0.42064983 Aux Loss:  0.2793706
+Iter:  2000 Loss:  0.27416706 Aux Loss:  0.27521232
+Iter:  2500 Loss:  0.23731717 Aux Loss:  0.27746338
+Iter:  3000 Loss:  0.33428988 Aux Loss:  0.27366662
+Iter:  3500 Loss:  0.31863672 Aux Loss:  0.27350995
+Task: 65 Time: 130.7706995010376 Mean: 0.8348188920454546  First: 0.5148437499999999  Last: 0.9488281249999999
+Iter:  0 Loss:  4.154722 Aux Loss:  0.0
+Iter:  500 Loss:  0.36039138 Aux Loss:  0.32933202
+Iter:  1000 Loss:  0.3551965 Aux Loss:  0.29169267
+Iter:  1500 Loss:  0.28490275 Aux Loss:  0.28543454
+Iter:  2000 Loss:  0.34557062 Aux Loss:  0.2772472
+Iter:  2500 Loss:  0.31780952 Aux Loss:  0.2709311
+Iter:  3000 Loss:  0.39598888 Aux Loss:  0.2748644
+Iter:  3500 Loss:  0.28257957 Aux Loss:  0.27265257
+Task: 66 Time: 130.8066644668579 Mean: 0.8344507929104479  First: 0.5050781249999999  Last: 0.9550781250000001
+Iter:  0 Loss:  3.3551545 Aux Loss:  0.0
+Iter:  500 Loss:  0.23329018 Aux Loss:  0.31404126
+Iter:  1000 Loss:  0.23635441 Aux Loss:  0.281373
+Iter:  1500 Loss:  0.30166414 Aux Loss:  0.2767825
+Iter:  2000 Loss:  0.35674918 Aux Loss:  0.27041754
+Iter:  2500 Loss:  0.29966018 Aux Loss:  0.268173
+Iter:  3000 Loss:  0.3987011 Aux Loss:  0.2648831
+Iter:  3500 Loss:  0.31997538 Aux Loss:  0.26777583
+Task: 67 Time: 131.031001329422 Mean: 0.8365808823529413  First: 0.533203125  Last: 0.9492187500000001
+Iter:  0 Loss:  3.4736433 Aux Loss:  0.0
+Iter:  500 Loss:  0.41810718 Aux Loss:  0.322698
+Iter:  1000 Loss:  0.3225894 Aux Loss:  0.29332998
+Iter:  1500 Loss:  0.25722712 Aux Loss:  0.28004903
+Iter:  2000 Loss:  0.25083274 Aux Loss:  0.27306944
+Iter:  2500 Loss:  0.23960221 Aux Loss:  0.27466017
+Iter:  3000 Loss:  0.38606727 Aux Loss:  0.27512467
+Iter:  3500 Loss:  0.25642163 Aux Loss:  0.27060652
+Task: 68 Time: 131.1252360343933 Mean: 0.833882472826087  First: 0.53515625  Last: 0.9527343749999999
+Iter:  0 Loss:  3.522407 Aux Loss:  0.0
+Iter:  500 Loss:  0.3783269 Aux Loss:  0.32333553
+Iter:  1000 Loss:  0.2876816 Aux Loss:  0.29322806
+Iter:  1500 Loss:  0.28315586 Aux Loss:  0.2793044
+Iter:  2000 Loss:  0.42361718 Aux Loss:  0.2823104
+Iter:  2500 Loss:  0.3075496 Aux Loss:  0.27736172
+Iter:  3000 Loss:  0.3247726 Aux Loss:  0.2754549
+Iter:  3500 Loss:  0.3793687 Aux Loss:  0.27775684
+Task: 69 Time: 131.23379135131836 Mean: 0.8307421875  First: 0.525  Last: 0.9496093750000001
+Iter:  0 Loss:  3.5456126 Aux Loss:  0.0
+Iter:  500 Loss:  0.37736288 Aux Loss:  0.32186958
+Iter:  1000 Loss:  0.31426975 Aux Loss:  0.30112073
+Iter:  1500 Loss:  0.34103686 Aux Loss:  0.2869597
+Iter:  2000 Loss:  0.37774065 Aux Loss:  0.2837698
+Iter:  2500 Loss:  0.25493443 Aux Loss:  0.2752474
+Iter:  3000 Loss:  0.25065523 Aux Loss:  0.27274466
+Iter:  3500 Loss:  0.28522885 Aux Loss:  0.27420744
+Task: 70 Time: 131.33684134483337 Mean: 0.8334947183098593  First: 0.519921875  Last: 0.9546874999999999
+Iter:  0 Loss:  3.9147732 Aux Loss:  0.0
+Iter:  500 Loss:  0.4303524 Aux Loss:  0.3192203
+Iter:  1000 Loss:  0.26478508 Aux Loss:  0.2862172
+Iter:  1500 Loss:  0.36145145 Aux Loss:  0.2808153
+Iter:  2000 Loss:  0.35679257 Aux Loss:  0.27526
+Iter:  2500 Loss:  0.2918587 Aux Loss:  0.27767524
+Iter:  3000 Loss:  0.312302 Aux Loss:  0.27204156
+Iter:  3500 Loss:  0.37274227 Aux Loss:  0.27171037
+Task: 71 Time: 131.0595395565033 Mean: 0.8279134114583333  First: 0.47304687500000003  Last: 0.94765625
+Iter:  0 Loss:  3.9209802 Aux Loss:  0.0
+Iter:  500 Loss:  0.2480229 Aux Loss:  0.32820374
+Iter:  1000 Loss:  0.31109986 Aux Loss:  0.3034946
+Iter:  1500 Loss:  0.37701532 Aux Loss:  0.28857827
+Iter:  2000 Loss:  0.32912403 Aux Loss:  0.28591707
+Iter:  2500 Loss:  0.26885584 Aux Loss:  0.2850614
+Iter:  3000 Loss:  0.23042406 Aux Loss:  0.286183
+Iter:  3500 Loss:  0.34314132 Aux Loss:  0.27987194
+Task: 72 Time: 131.30665922164917 Mean: 0.83046875  First: 0.47187500000000004  Last: 0.9546874999999999
+Iter:  0 Loss:  3.5332942 Aux Loss:  0.0
+Iter:  500 Loss:  0.3879869 Aux Loss:  0.3289133
+Iter:  1000 Loss:  0.32054672 Aux Loss:  0.30188996
+Iter:  1500 Loss:  0.32255933 Aux Loss:  0.28802994
+Iter:  2000 Loss:  0.34818643 Aux Loss:  0.28323698
+Iter:  2500 Loss:  0.36847168 Aux Loss:  0.27564654
+Iter:  3000 Loss:  0.4038082 Aux Loss:  0.27975744
+Iter:  3500 Loss:  0.32060128 Aux Loss:  0.27861586
+Task: 73 Time: 131.5151972770691 Mean: 0.829344383445946  First: 0.505859375  Last: 0.95390625
+Iter:  0 Loss:  4.0372086 Aux Loss:  0.0
+Iter:  500 Loss:  0.30347234 Aux Loss:  0.33135805
+Iter:  1000 Loss:  0.29734483 Aux Loss:  0.30705145
+Iter:  1500 Loss:  0.29806405 Aux Loss:  0.29307663
+Iter:  2000 Loss:  0.2676663 Aux Loss:  0.288182
+Iter:  2500 Loss:  0.27979037 Aux Loss:  0.28494576
+Iter:  3000 Loss:  0.4422563 Aux Loss:  0.2791337
+Iter:  3500 Loss:  0.35439208 Aux Loss:  0.28436184
+Task: 74 Time: 131.57824206352234 Mean: 0.8285520833333334  First: 0.521484375  Last: 0.9519531250000001
+Iter:  0 Loss:  3.5959392 Aux Loss:  0.0
+Iter:  500 Loss:  0.40771165 Aux Loss:  0.33636376
+Iter:  1000 Loss:  0.29444468 Aux Loss:  0.30697358
+Iter:  1500 Loss:  0.36221343 Aux Loss:  0.29699638
+Iter:  2000 Loss:  0.29812476 Aux Loss:  0.29038203
+Iter:  2500 Loss:  0.25361356 Aux Loss:  0.2933396
+Iter:  3000 Loss:  0.2892947 Aux Loss:  0.28916126
+Iter:  3500 Loss:  0.31976104 Aux Loss:  0.28815496
+Task: 75 Time: 131.54736804962158 Mean: 0.8216951069078946  First: 0.49296875  Last: 0.95234375
+Iter:  0 Loss:  3.0894372 Aux Loss:  0.0
+Iter:  500 Loss:  0.36769482 Aux Loss:  0.33087313
+Iter:  1000 Loss:  0.40206516 Aux Loss:  0.30264077
+Iter:  1500 Loss:  0.28938165 Aux Loss:  0.29065308
+Iter:  2000 Loss:  0.29199284 Aux Loss:  0.28091112
+Iter:  2500 Loss:  0.34441566 Aux Loss:  0.28033403
+Iter:  3000 Loss:  0.3556058 Aux Loss:  0.27890983
+Iter:  3500 Loss:  0.29473892 Aux Loss:  0.28023162
+Task: 76 Time: 131.6551229953766 Mean: 0.8162844967532468  First: 0.49492187499999996  Last: 0.954296875
+Iter:  0 Loss:  3.464057 Aux Loss:  0.0
+Iter:  500 Loss:  0.26671597 Aux Loss:  0.34091312
+Iter:  1000 Loss:  0.40869662 Aux Loss:  0.30643335
+Iter:  1500 Loss:  0.2437586 Aux Loss:  0.2930055
+Iter:  2000 Loss:  0.31146014 Aux Loss:  0.2935527
+Iter:  2500 Loss:  0.27085003 Aux Loss:  0.28926805
+Iter:  3000 Loss:  0.32054654 Aux Loss:  0.2837778
+Iter:  3500 Loss:  0.37624604 Aux Loss:  0.28206167
+Task: 77 Time: 131.46931076049805 Mean: 0.8081280048076923  First: 0.46328125000000003  Last: 0.951171875
+Iter:  0 Loss:  3.6935763 Aux Loss:  0.0
+Iter:  500 Loss:  0.39912534 Aux Loss:  0.3331206
+Iter:  1000 Loss:  0.33666337 Aux Loss:  0.3044671
+Iter:  1500 Loss:  0.3004081 Aux Loss:  0.29648572
+Iter:  2000 Loss:  0.33957466 Aux Loss:  0.2912795
+Iter:  2500 Loss:  0.34560436 Aux Loss:  0.2817672
+Iter:  3000 Loss:  0.28923124 Aux Loss:  0.28645155
+Iter:  3500 Loss:  0.37619972 Aux Loss:  0.28652576
+Task: 78 Time: 131.4073760509491 Mean: 0.8117929193037975  First: 0.426953125  Last: 0.94375
+Iter:  0 Loss:  4.0803075 Aux Loss:  0.0
+Iter:  500 Loss:  0.3102583 Aux Loss:  0.33759004
+Iter:  1000 Loss:  0.33391714 Aux Loss:  0.30961514
+Iter:  1500 Loss:  0.29949626 Aux Loss:  0.30468628
+Iter:  2000 Loss:  0.32781017 Aux Loss:  0.29989222
+Iter:  2500 Loss:  0.32478544 Aux Loss:  0.29449692
+Iter:  3000 Loss:  0.25417715 Aux Loss:  0.29047447
+Iter:  3500 Loss:  0.25550598 Aux Loss:  0.29508567
+Task: 79 Time: 131.46896934509277 Mean: 0.8181689453125001  First: 0.4375  Last: 0.9460937500000001
+Iter:  0 Loss:  3.5459406 Aux Loss:  0.0
+Iter:  500 Loss:  0.29508305 Aux Loss:  0.33939308
+Iter:  1000 Loss:  0.35821128 Aux Loss:  0.30982423
+Iter:  1500 Loss:  0.37058797 Aux Loss:  0.2949569
+Iter:  2000 Loss:  0.27441671 Aux Loss:  0.29302856
+Iter:  2500 Loss:  0.2958598 Aux Loss:  0.28451625
+Iter:  3000 Loss:  0.3815924 Aux Loss:  0.28654534
+Iter:  3500 Loss:  0.25365728 Aux Loss:  0.28721476
+Task: 80 Time: 131.60883021354675 Mean: 0.8124807098765432  First: 0.4453125  Last: 0.9609375000000002
+Iter:  0 Loss:  3.6758559 Aux Loss:  0.0
+Iter:  500 Loss:  0.31539184 Aux Loss:  0.33841974
+Iter:  1000 Loss:  0.33443746 Aux Loss:  0.3036053
+Iter:  1500 Loss:  0.3425247 Aux Loss:  0.2934326
+Iter:  2000 Loss:  0.29120937 Aux Loss:  0.28952858
+Iter:  2500 Loss:  0.28130388 Aux Loss:  0.28516465
+Iter:  3000 Loss:  0.48058894 Aux Loss:  0.28566793
+Iter:  3500 Loss:  0.29940215 Aux Loss:  0.28680497
+Task: 81 Time: 131.6087291240692 Mean: 0.7987614329268293  First: 0.500390625  Last: 0.944921875
+Iter:  0 Loss:  3.3739934 Aux Loss:  0.0
+Iter:  500 Loss:  0.33457428 Aux Loss:  0.3375655
+Iter:  1000 Loss:  0.359137 Aux Loss:  0.31070492
+Iter:  1500 Loss:  0.46060926 Aux Loss:  0.294839
+Iter:  2000 Loss:  0.31759292 Aux Loss:  0.2942884
+Iter:  2500 Loss:  0.32621887 Aux Loss:  0.28818995
+Iter:  3000 Loss:  0.3121873 Aux Loss:  0.29248193
+Iter:  3500 Loss:  0.3433634 Aux Loss:  0.2886223
+Task: 82 Time: 131.76595664024353 Mean: 0.7926204819277107  First: 0.49804687499999994  Last: 0.9421875
+Iter:  0 Loss:  3.6940527 Aux Loss:  0.0
+Iter:  500 Loss:  0.3771551 Aux Loss:  0.35310033
+Iter:  1000 Loss:  0.3835354 Aux Loss:  0.32118076
+Iter:  1500 Loss:  0.3170994 Aux Loss:  0.30352578
+Iter:  2000 Loss:  0.31090924 Aux Loss:  0.303924
+Iter:  2500 Loss:  0.37792286 Aux Loss:  0.29720765
+Iter:  3000 Loss:  0.32226378 Aux Loss:  0.29161736
+Iter:  3500 Loss:  0.3651772 Aux Loss:  0.29699478
+Task: 83 Time: 131.74926376342773 Mean: 0.7988420758928573  First: 0.45625  Last: 0.9457031250000001
+Iter:  0 Loss:  3.0328765 Aux Loss:  0.0
+Iter:  500 Loss:  0.27572972 Aux Loss:  0.33757865
+Iter:  1000 Loss:  0.3583622 Aux Loss:  0.3087287
+Iter:  1500 Loss:  0.34518695 Aux Loss:  0.29531318
+Iter:  2000 Loss:  0.37137377 Aux Loss:  0.29200011
+Iter:  2500 Loss:  0.31389865 Aux Loss:  0.28566545
+Iter:  3000 Loss:  0.26741818 Aux Loss:  0.28605393
+Iter:  3500 Loss:  0.2664398 Aux Loss:  0.2848501
+Task: 84 Time: 131.87476658821106 Mean: 0.7891038602941177  First: 0.44414062499999996  Last: 0.944140625
+Iter:  0 Loss:  3.5714211 Aux Loss:  0.0
+Iter:  500 Loss:  0.31899428 Aux Loss:  0.33788174
+Iter:  1000 Loss:  0.32075194 Aux Loss:  0.30898795
+Iter:  1500 Loss:  0.34909752 Aux Loss:  0.29632977
+Iter:  2000 Loss:  0.34491682 Aux Loss:  0.2934486
+Iter:  2500 Loss:  0.3982987 Aux Loss:  0.29165208
+Iter:  3000 Loss:  0.39579028 Aux Loss:  0.29178992
+Iter:  3500 Loss:  0.3149766 Aux Loss:  0.29120412
+Task: 85 Time: 132.0528371334076 Mean: 0.785265261627907  First: 0.44375000000000003  Last: 0.9492187500000001
+Iter:  0 Loss:  3.500021 Aux Loss:  0.0
+Iter:  500 Loss:  0.26690733 Aux Loss:  0.35538188
+Iter:  1000 Loss:  0.33524024 Aux Loss:  0.31699398
+Iter:  1500 Loss:  0.36563018 Aux Loss:  0.30815765
+Iter:  2000 Loss:  0.23818125 Aux Loss:  0.29691985
+Iter:  2500 Loss:  0.27083793 Aux Loss:  0.29905295
+Iter:  3000 Loss:  0.2848469 Aux Loss:  0.2968413
+Iter:  3500 Loss:  0.29144067 Aux Loss:  0.2923866
+Task: 86 Time: 132.2923572063446 Mean: 0.7875942887931034  First: 0.4078125000000001  Last: 0.95078125
+Iter:  0 Loss:  4.0710683 Aux Loss:  0.0
+Iter:  500 Loss:  0.26213226 Aux Loss:  0.35104698
+Iter:  1000 Loss:  0.37743646 Aux Loss:  0.317818
+Iter:  1500 Loss:  0.41141868 Aux Loss:  0.30451798
+Iter:  2000 Loss:  0.36133054 Aux Loss:  0.29734018
+Iter:  2500 Loss:  0.33557206 Aux Loss:  0.2966877
+Iter:  3000 Loss:  0.30377227 Aux Loss:  0.30172485
+Iter:  3500 Loss:  0.36052144 Aux Loss:  0.29175854
+Task: 87 Time: 132.21870231628418 Mean: 0.7847301136363637  First: 0.3984375  Last: 0.940625
+Iter:  0 Loss:  3.4750268 Aux Loss:  0.0
+Iter:  500 Loss:  0.44750068 Aux Loss:  0.3617008
+Iter:  1000 Loss:  0.40822852 Aux Loss:  0.32078782
+Iter:  1500 Loss:  0.3358443 Aux Loss:  0.31267333
+Iter:  2000 Loss:  0.39772865 Aux Loss:  0.30381468
+Iter:  2500 Loss:  0.42766798 Aux Loss:  0.30283862
+Iter:  3000 Loss:  0.36885518 Aux Loss:  0.3011269
+Iter:  3500 Loss:  0.3530705 Aux Loss:  0.3026564
+Task: 88 Time: 132.24902367591858 Mean: 0.788329529494382  First: 0.445703125  Last: 0.945703125
+Iter:  0 Loss:  3.6463006 Aux Loss:  0.0
+Iter:  500 Loss:  0.3136412 Aux Loss:  0.3615339
+Iter:  1000 Loss:  0.38386548 Aux Loss:  0.32481667
+Iter:  1500 Loss:  0.32135406 Aux Loss:  0.31100172
+Iter:  2000 Loss:  0.38478217 Aux Loss:  0.30092615
+Iter:  2500 Loss:  0.3664607 Aux Loss:  0.3024425
+Iter:  3000 Loss:  0.31610727 Aux Loss:  0.30328608
+Iter:  3500 Loss:  0.29586053 Aux Loss:  0.30077747
+Task: 89 Time: 132.3753366470337 Mean: 0.7878472222222224  First: 0.47031249999999997  Last: 0.94140625
+Iter:  0 Loss:  3.7215967 Aux Loss:  0.0
+Iter:  500 Loss:  0.24144831 Aux Loss:  0.34975484
+Iter:  1000 Loss:  0.3291057 Aux Loss:  0.31471163
+Iter:  1500 Loss:  0.39178663 Aux Loss:  0.30405
+Iter:  2000 Loss:  0.35781166 Aux Loss:  0.29873216
+Iter:  2500 Loss:  0.35860002 Aux Loss:  0.29189673
+Iter:  3000 Loss:  0.29427773 Aux Loss:  0.29605836
+Iter:  3500 Loss:  0.4015796 Aux Loss:  0.2968349
+Task: 90 Time: 132.2353274822235 Mean: 0.7799922733516483  First: 0.4140625  Last: 0.9453125
+Iter:  0 Loss:  3.6347828 Aux Loss:  0.0
+Iter:  500 Loss:  0.40558627 Aux Loss:  0.35753503
+Iter:  1000 Loss:  0.30479288 Aux Loss:  0.32824647
+Iter:  1500 Loss:  0.34026575 Aux Loss:  0.3170696
+Iter:  2000 Loss:  0.34934476 Aux Loss:  0.31454936
+Iter:  2500 Loss:  0.32439038 Aux Loss:  0.30676123
+Iter:  3000 Loss:  0.3699699 Aux Loss:  0.31225005
+Iter:  3500 Loss:  0.31424585 Aux Loss:  0.3051633
+Task: 91 Time: 132.1394031047821 Mean: 0.7855213994565217  First: 0.3921875  Last: 0.941796875
+Iter:  0 Loss:  3.8287344 Aux Loss:  0.0
+Iter:  500 Loss:  0.35949022 Aux Loss:  0.3579336
+Iter:  1000 Loss:  0.28149825 Aux Loss:  0.32766193
+Iter:  1500 Loss:  0.43886998 Aux Loss:  0.31114954
+Iter:  2000 Loss:  0.4234158 Aux Loss:  0.31046957
+Iter:  2500 Loss:  0.33149216 Aux Loss:  0.3065894
+Iter:  3000 Loss:  0.35396928 Aux Loss:  0.3045234
+Iter:  3500 Loss:  0.33523172 Aux Loss:  0.3028857
+Task: 92 Time: 132.31404614448547 Mean: 0.787373991935484  First: 0.35546874999999994  Last: 0.95390625
+Iter:  0 Loss:  4.0708733 Aux Loss:  0.0
+Iter:  500 Loss:  0.43349928 Aux Loss:  0.37933865
+Iter:  1000 Loss:  0.34296352 Aux Loss:  0.33829546
+Iter:  1500 Loss:  0.2784075 Aux Loss:  0.32601357
+Iter:  2000 Loss:  0.36754003 Aux Loss:  0.3207704
+Iter:  2500 Loss:  0.35451552 Aux Loss:  0.3205591
+Iter:  3000 Loss:  0.3993032 Aux Loss:  0.31590766
+Iter:  3500 Loss:  0.28072947 Aux Loss:  0.31489146
+Task: 93 Time: 132.35787153244019 Mean: 0.7769905252659576  First: 0.39101562500000003  Last: 0.941015625
+Iter:  0 Loss:  3.6050138 Aux Loss:  0.0
+Iter:  500 Loss:  0.40343884 Aux Loss:  0.36188677
+Iter:  1000 Loss:  0.33539847 Aux Loss:  0.32903096
+Iter:  1500 Loss:  0.35149407 Aux Loss:  0.31955072
+Iter:  2000 Loss:  0.33510515 Aux Loss:  0.31092826
+Iter:  2500 Loss:  0.34270573 Aux Loss:  0.30867836
+Iter:  3000 Loss:  0.23983817 Aux Loss:  0.3092996
+Iter:  3500 Loss:  0.28564608 Aux Loss:  0.30560037
+Task: 94 Time: 132.40666222572327 Mean: 0.7697697368421053  First: 0.340625  Last: 0.9500000000000001
+Iter:  0 Loss:  3.505111 Aux Loss:  0.0
+Iter:  500 Loss:  0.31571487 Aux Loss:  0.3579027
+Iter:  1000 Loss:  0.38073418 Aux Loss:  0.33273196
+Iter:  1500 Loss:  0.34783995 Aux Loss:  0.32037488
+Iter:  2000 Loss:  0.3872619 Aux Loss:  0.3102268
+Iter:  2500 Loss:  0.31563604 Aux Loss:  0.31125003
+Iter:  3000 Loss:  0.2791467 Aux Loss:  0.3106015
+Iter:  3500 Loss:  0.4120604 Aux Loss:  0.3085312
+Task: 95 Time: 132.5312159061432 Mean: 0.7609375000000002  First: 0.352734375  Last: 0.9437500000000001
+Iter:  0 Loss:  3.515916 Aux Loss:  0.0
+Iter:  500 Loss:  0.45744953 Aux Loss:  0.3625379
+Iter:  1000 Loss:  0.3940887 Aux Loss:  0.3333692
+Iter:  1500 Loss:  0.32265252 Aux Loss:  0.31451768
+Iter:  2000 Loss:  0.29557756 Aux Loss:  0.3061317
+Iter:  2500 Loss:  0.37168592 Aux Loss:  0.308057
+Iter:  3000 Loss:  0.35978884 Aux Loss:  0.30975896
+Iter:  3500 Loss:  0.38565317 Aux Loss:  0.30805776
+Task: 96 Time: 132.57731223106384 Mean: 0.7595240012886598  First: 0.3921875  Last: 0.943359375
+Iter:  0 Loss:  3.671762 Aux Loss:  0.0
+Iter:  500 Loss:  0.38391697 Aux Loss:  0.36432752
+Iter:  1000 Loss:  0.3593738 Aux Loss:  0.33657083
+Iter:  1500 Loss:  0.31586388 Aux Loss:  0.3237949
+Iter:  2000 Loss:  0.46130487 Aux Loss:  0.3212872
+Iter:  2500 Loss:  0.35160714 Aux Loss:  0.3169555
+Iter:  3000 Loss:  0.2809383 Aux Loss:  0.31194583
+Iter:  3500 Loss:  0.42450738 Aux Loss:  0.31637177
+Task: 97 Time: 132.7240686416626 Mean: 0.7666254783163264  First: 0.404296875  Last: 0.9429687499999999
+Iter:  0 Loss:  3.8438978 Aux Loss:  0.0
+Iter:  500 Loss:  0.4676143 Aux Loss:  0.346618
+Iter:  1000 Loss:  0.37516227 Aux Loss:  0.31709787
+Iter:  1500 Loss:  0.27344826 Aux Loss:  0.3128518
+Iter:  2000 Loss:  0.27636355 Aux Loss:  0.30557328
+Iter:  2500 Loss:  0.38573098 Aux Loss:  0.30207995
+Iter:  3000 Loss:  0.345868 Aux Loss:  0.29718274
+Iter:  3500 Loss:  0.35160887 Aux Loss:  0.30045122
+Task: 98 Time: 132.54147934913635 Mean: 0.7716224747474747  First: 0.432421875  Last: 0.946875
+Iter:  0 Loss:  3.6630707 Aux Loss:  0.0
+Iter:  500 Loss:  0.30208033 Aux Loss:  0.35968235
+Iter:  1000 Loss:  0.27751476 Aux Loss:  0.3285913
+Iter:  1500 Loss:  0.32072353 Aux Loss:  0.31853694
+Iter:  2000 Loss:  0.54179204 Aux Loss:  0.3153122
+Iter:  2500 Loss:  0.3786148 Aux Loss:  0.3093043
+Iter:  3000 Loss:  0.3714852 Aux Loss:  0.3154478
+Iter:  3500 Loss:  0.25697407 Aux Loss:  0.30961317
+Task: 99 Time: 132.8599681854248 Mean: 0.76851953125  First: 0.43242187499999996  Last: 0.9332031249999999
+
+Model execution complete.
+mnist_SI_model with pathint gating and pathint stablization finished, took 12982.682430744171 seconds

@@ -7,6 +7,7 @@ import tensorflow as tf
 import numpy as np
 import pickle
 import os, sys
+import time
 
 # Model modules
 from parameters import *
@@ -56,6 +57,7 @@ class Model:
             self.x = tf.nn.dropout(self.input_data, self.input_droput_keep_pct)
 
         # Apply feedforward network
+        print('Input condition has been applied')
         self.apply_dense_layers()
 
 
@@ -109,7 +111,8 @@ class Model:
             convolutional weights are loaded from a file in par['save_dir']. """
 
         # Load weights
-        conv_weights = pickle.load(open(par['save_dir'] + 'conv_weights.pkl','rb'))
+        conv_weights = pickle.load(open(par['save_dir'] + par['task'] + '_conv_weights.pkl','rb'))
+        print('conv_weights has been loaded from', par['save_dir'] + par['task'] + '_conv_weights.pkl')
 
         # Apply first two convolutional layers
         conv1 = tf.layers.conv2d(inputs=self.input_data,filters=32, kernel_size=[3, 3], kernel_initializer = \
@@ -319,19 +322,26 @@ def main(save_fn, gpu_id=None):
     if gpu_id is not None:
         print('Cuda GPI id is', gpu_id)
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
-
+    '''
     if (par['task'] == 'cifar'):
             print('Task is cifar')
     elif (par['task'] == 'imagenet'):
         print('Task is imagenet')
     else:
         print('Task is mnist')
+    '''
 
     # If desired, train the convolutional layers with the CIFAR datasets
     # Otherwise, the network will load convolutional weights from the saved file
     if (par['task'] == 'cifar' or par['task'] == 'imagenet') and par['train_convolutional_layers']:
-        print('Added convoltional layersfor training')
+        print('Training convolutional layers with the CIFAR datasets')
+        conv_start_time = time.time()
         convolutional_layers.ConvolutionalLayers()
+        conv_end_time = time.time()
+        conv_time = conv_end_time - conv_start_time
+        print('Training convolutional layers took', conv_time, 'seconds')
+    else:
+        print('Convolutional layers has been trained before, weights will be loaded')
 
     print('\nRunning model.\n')
 
@@ -374,6 +384,7 @@ def main(save_fn, gpu_id=None):
 
         # Begin training loop, iterating over tasks
         for task in range(par['n_tasks']):
+            task_start = time.time()
 
             # Create dictionary of gating signals applied to each hidden layer for this task
             gating_dict = {k:v for k,v in zip(gating, par['gating'][task])}
@@ -437,7 +448,9 @@ def main(save_fn, gpu_id=None):
                     accuracy[test_task] += acc
 
             # Display network performance after testing is complete
-            print('Task ',task, ' Mean ', np.mean(accuracy), ' First ', accuracy[0], ' Last ', accuracy[-1])
+            task_end = time.time()
+            task_time = task_end - task_start
+            print('Task:', task, 'Time:', task_time, 'Mean:', np.mean(accuracy), ' First:', accuracy[0], ' Last:', accuracy[-1])
             accuracy_full.append(np.mean(accuracy))
 
             # Reset weights between tasks if called upon
