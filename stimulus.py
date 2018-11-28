@@ -63,6 +63,7 @@ class Stimulus:
             self.mnist_permutation.append(np.random.permutation(784))
 
 
+    # Added Fashion-MNIST by Zhuokai
     def generate_fashion_mnist_tuning(self):
         """ Load Fashion MNIST data and parse its images, labels, and indices.
             Also generate the required permutations. """
@@ -77,8 +78,6 @@ class Stimulus:
         self.num_train_examples = len(self.fashion_train_images)
         self.num_test_examples  = len(self.fashion_test_images)
         self.num_outputs        = 10
-
-
 
         # Put the images into arrays
         self.fashion_train_images = np.array(self.fashion_train_images)/255
@@ -187,7 +186,7 @@ class Stimulus:
         # Select example indices
         ind_ref = self.test_ind if test else self.train_ind
         ind = ind_ref[task_num]
-        q = np.random.randint(0,len(ind),par['batch_size'])
+        q = np.random.randint(0, len(ind), par['batch_size'])
 
         # Pick out batch data and labels
         batch_data   = np.zeros((par['batch_size'], 32,32,3), dtype = np.float32)
@@ -216,18 +215,10 @@ class Stimulus:
                 if par['multihead']:
                     k = int(self.train_labels[ind[q[i]]])
                 else:
-                    k = self.train_labels[ind[q[i]]][0]%self.labels_per_task
+                    #k = self.train_labels[ind[q[i]]][0]%self.labels_per_task
+                    k = self.train_labels[q[i]][0]%self.labels_per_task
                 batch_labels[i,k] = 1
-                #print(self.train_images.shape)
-                # if not self.train_images:
-                #     print("Error: train_images is empty")
-                # else:
-                #     #print("train_images has size", self.train_images[0].size)
-                #     #print(self.train_images)
-                # print(type(self.train_images))
-                # print(self.train_images.shape)
-                # print(self.train_images.ndim)
-                # print(self.train_images)
+
                 batch_data[i,:] = np.float32(np.reshape(self.train_images[ind[q[i]], :], (1,32,32,3), order='F'))/255
 
         # Return images, labels, and masks

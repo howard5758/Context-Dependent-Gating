@@ -43,7 +43,7 @@ fashion_mnist_updates = {
 
 cifar_updates = {
     'layer_dims'            : [4096, 1000, 1000, 5],
-    'n_tasks'               : 20,
+    'n_tasks'               : 50,
     'task'                  : 'cifar',
     'save_dir'              : './savedir/',
     'n_train_batches'       : 977,
@@ -100,9 +100,9 @@ def run_cifar_SI_model(gpu_id):
     print('CIFAR - Synaptic Stabilization = SI - Gating = 80%')
     update_parameters(cifar_updates)
     update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 1.0})
-    update_parameters({'stabilization': 'EWC', 'omega_c': 0.75, 'omega_xi': 0.01})
-    update_parameters({'train_convolutional_layers': True})
-    save_fn = 'cifar_SI_XdG_pathint.pkl'
+    update_parameters({'stabilization': 'pathint', 'omega_c': 0.75, 'omega_xi': 0.01})
+    update_parameters({'train_convolutional_layers': False})
+    save_fn = 'cifar_SI_XdG_50.pkl'
     try_model(save_fn, gpu_id)
 
 # training a network on 100 sequential Imagenet tasks using synaptic intelligence 
@@ -125,20 +125,20 @@ if __name__ == "__main__":
     mnist_run_time = mnist_end_time - mnist_start_time
     print('EWC_XdG finished, took', mnist_run_time, 'seconds')
     '''
-
+    '''
     fashoin_mnist_start_time = time.time()
     run_fashion_mnist_SI_model("0")
     fashoin_mnist_end_time = time.time()
     fashion_mnist_run_time = fashoin_mnist_end_time - fashoin_mnist_start_time
     print('SI_XdG finished, took', fashion_mnist_run_time, 'seconds')
-    
     '''
+    
     cifar_start_time = time.time()
     run_cifar_SI_model("0")
     cifar_end_time = time.time()
     cifar_run_time = cifar_end_time - cifar_start_time
-    print('cifar_EWC_XdG finished, took', cifar_run_time, 'seconds')
-    '''
+    print('cifar_SI_XdG finished, took', cifar_run_time, 'seconds')
+    
     
     '''
     imagenet_start_time = time.time()

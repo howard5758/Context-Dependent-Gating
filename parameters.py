@@ -21,7 +21,7 @@ par = {
     'reset_weights'                 : False, # Reset weights between tasks
 
     # Task specs
-    'n_tasks'                       : 100,
+    'n_tasks'                       : 50,
     'layer_dims'                    : [28**2, 2000, 2000, 10], # default for mnist
     'multihead'                     : False, # option for CIFAR task, in which different unique output units are associated with each label
     'include_rule_signal'           : False,
@@ -87,14 +87,13 @@ def update_dependencies():
     """
 
     par['n_layers'] = len(par['layer_dims'])
-    #print('n_layers has been updated to', len(par['layer_dims']))
 
     if par['task'] == 'mnist' or par['task'] == 'imagenet' or par['task'] == 'fashion-mnist':
         par['labels_per_task'] = 10
-        #print('Labels per task is', par['labels_per_task'])
+
+    # Used to be 5, but changed to 2 since we want to run 50 tasks
     elif par['task'] == 'cifar':
-        par['labels_per_task'] = 5
-        #print('Labels per task is', par['labels_per_task'])
+        par['labels_per_task'] = 2
     
     gen_gating()
     #print('Finished generating gating for hidden units')

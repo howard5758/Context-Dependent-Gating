@@ -322,14 +322,6 @@ def main(save_fn, gpu_id=None):
     if gpu_id is not None:
         print('Cuda GPI id is', gpu_id)
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
-    '''
-    if (par['task'] == 'cifar'):
-            print('Task is cifar')
-    elif (par['task'] == 'imagenet'):
-        print('Task is imagenet')
-    else:
-        print('Task is mnist')
-    '''
 
     # If desired, train the convolutional layers with the CIFAR datasets
     # Otherwise, the network will load convolutional weights from the saved file
