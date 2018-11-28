@@ -87,11 +87,12 @@ def plot_fashion_mnist():
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
 
-    for i in range(0, 3):
-    	if i == 0 or i == 1:
-        	ax1.plot(all_accuracies[i, :], label=i)
-        else:
-        	ax1.plot(all_accuracies[i, 0:20], label=i)
+    for i in range(0, 2):
+    	ax1.plot(all_accuracies[i, :], label=i)
+        	
+
+    # CIFAR only has 20 tasks
+    ax1.plot(all_accuracies[2, 0:20], label=2)
 
     colormap = ['b', 'g', 'r']
     for i, j in enumerate(ax1.lines):
