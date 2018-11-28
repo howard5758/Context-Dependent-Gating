@@ -147,9 +147,9 @@ def plot_fashion_mnist():
 
     ylim_min = 0.6
 
-    accuracy['fashion_mnist_SI_XdG'] = plot_best_result(ax1, savedir, 'fashion_mnist_SI_XdG', label='Fashion-MNIST', linestyle = '-')
-    accuracy['mnist_SI_XdG'] = plot_best_result(ax1, savedir, 'mnist_SI_XdG', label='MNIST', linestyle = '-')
-    accuracy['cifar_SI_XdG'] = plot_best_result(ax1, savedir, 'cifar_SI_XdG', label='CIFAR', linestyle = '-')
+    accuracy['fashion_mnist_SI_XdG'] = plot_best_result(ax1, savedir_fashion, 'fashion_mnist_SI_XdG', label='Fashion-MNIST', linestyle = '-')
+    accuracy['mnist_SI_XdG'] = plot_best_result(ax1, savedir_mnist, 'mnist_SI_XdG', label='MNIST', linestyle = '-')
+    accuracy['cifar_SI_XdG'] = plot_best_result(ax1, savedir_cifar, 'cifar_SI_XdG', label='CIFAR', linestyle = '-')
 
     ax1.legend(ncol=3, fontsize=9)
     ax1.grid(True)
