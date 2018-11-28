@@ -78,9 +78,9 @@ def plot_fashion_mnist():
 
     all_accuracies = np.zeros((4, 100))
 
-    fashion_mnist = all_accuracies[0, :] = get_accuracy(savedir, 'fashion_mnist_SI_XdG')
-    mnist = all_accuracies[1, :] = get_accuracy(savedir, 'mnist_SI_XdG')
-    cifar = all_accuracies[2, :] = get_accuracy(savedir, 'cifar_SI_XdG')
+    fashion_mnist = all_accuracies[0, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
+    mnist = all_accuracies[1, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
+    cifar = all_accuracies[2, :] = get_accuracy(savedir_cifar, 'cifar_SI_XdG')
 
     all_labels = ['Fashion MNIST', 'MNIST', 'CIFAR']  
 
