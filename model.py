@@ -53,7 +53,7 @@ class Model:
         # Apply input condition
         if par['task'] == 'cifar' or par['task'] == 'imagenet':
             self.x = self.apply_convolutional_layers()
-        elif par['task'] == 'mnist':
+        elif par['task'] == 'mnist' or par['task'] == 'fashion-mnist':
             self.x = tf.nn.dropout(self.input_data, self.input_droput_keep_pct)
 
         # Apply feedforward network
@@ -350,7 +350,7 @@ def main(save_fn, gpu_id=None):
 
     # Create placeholders for the model
     # tf.placeholder(dtype, shape=None, name=None)
-    if par['task'] == 'mnist':
+    if par['task'] == 'mnist' or par['task'] == 'fashion-mnist':
         x   = tf.placeholder(tf.float32, [par['batch_size'], par['layer_dims'][0]], 'stim')
     elif par['task'] == 'cifar' or par['task'] == 'imagenet':
         x   = tf.placeholder(tf.float32, [par['batch_size'], 32, 32, 3], 'stim')

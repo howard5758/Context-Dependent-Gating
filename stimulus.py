@@ -3,6 +3,7 @@
 import numpy as np
 from parameters import *
 import pickle
+import tensorflow as tf
 
 
 class Stimulus:
@@ -12,6 +13,10 @@ class Stimulus:
         if par['task'] == 'mnist':
             self.mnist_dir = '..//mnist//data//original//'
             self.generate_mnist_tuning()
+
+        if par['task'] == 'fashion-mnist':
+            #self.mnist_dir = '..//mnist//data//original//'
+            self.generate_fashion_mnist_tuning()
 
         elif par['task'] == 'cifar':
             self.cifar10_dir = '..//cifar//cifar-10-python//'
@@ -56,6 +61,33 @@ class Stimulus:
         self.mnist_permutation  = []
         for t in range(par['n_tasks']):
             self.mnist_permutation.append(np.random.permutation(784))
+
+
+    def generate_fashion_mnist_tuning(self):
+        """ Load Fashion MNIST data and parse its images, labels, and indices.
+            Also generate the required permutations. """
+
+        # Import Fashion-MNIST data
+        (self.fashion_train_images, self.fashion_train_labels), (self.fashion_test_images, self.fashion_test_labels) = tf.keras.datasets.fashion_mnist.load_data()
+        self.fashion_train_images = (self.fashion_train_images).reshape(60000, 784)
+        self.fashion_test_images = (self.fashion_test_images).reshape(10000, 784)
+        print("Fashion-MNIST x_train shape:", self.fashion_train_images.shape, "Fashion-MNIST y_train shape:", self.fashion_train_labels.shape)
+
+        # Get number of training and testing examples
+        self.num_train_examples = len(self.fashion_train_images)
+        self.num_test_examples  = len(self.fashion_test_images)
+        self.num_outputs        = 10
+
+
+
+        # Put the images into arrays
+        self.fashion_train_images = np.array(self.fashion_train_images)/255
+        self.fashion_test_images  = np.array(self.fashion_test_images)/255
+
+        # Generate as many permutations as tasks
+        self.fashion_permutation  = []
+        for t in range(par['n_tasks']):
+            self.fashion_permutation.append(np.random.permutation(784))
 
 
     def generate_imagenet_tuning(self):
@@ -228,6 +260,32 @@ class Stimulus:
         # Return images and labels
         return batch_data, batch_labels
 
+    def generate_fashion_mnist_batch(self, task_num, test=False):
+        """ Generate a batch of randomly permuted MNIST images, based
+            on the current task. """
+
+        # Select random example indices
+        ind_num = self.num_test_examples if test else self.num_train_examples
+        q = np.random.randint(0, ind_num, par['batch_size'])
+
+        # Pick out batch data and labels
+        batch_data   = np.zeros((par['batch_size'], 28**2), dtype=np.float32)
+        batch_labels = np.zeros((par['batch_size'], self.num_outputs), dtype=np.float32)
+        for i in range(par['batch_size']):
+            if test:
+                # Select images and labels from the testing set if required
+                k = self.fashion_test_labels[q[i]]
+                batch_labels[i,k] = 1
+                batch_data[i,:] = self.fashion_test_images[q[i]][self.fashion_permutation[task_num]]
+            else:
+                # Select images and labels from the training set if required
+                k = self.fashion_train_labels[q[i]]
+                batch_labels[i,k] = 1
+                batch_data[i,:] = self.fashion_train_images[q[i]][self.fashion_permutation[task_num]]
+
+        # Return images and labels
+        return batch_data, batch_labels
+
 
     def make_batch(self, task_num, test=False):
         """ Based on the task number and testing status, generate a randomly
@@ -239,6 +297,9 @@ class Stimulus:
         # Select the required task
         if par['task'] == 'mnist':
             batch_data, batch_labels = self.generate_mnist_batch(task_num, test)
+            mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+        elif par['task'] == 'fashion-mnist':
+            batch_data, batch_labels = self.generate_fashion_mnist_batch(task_num, test)
             mask = np.ones((par['batch_size'], 10), dtype=np.float32)
         elif par['task'] == 'cifar' or par['task'] == 'imagenet':
             batch_data, batch_labels, mask = self.generate_image_batch(task_num, test)

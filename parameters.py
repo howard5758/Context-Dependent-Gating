@@ -15,7 +15,7 @@ par = {
     'save_dir'                      : './savedir/',
     'stabilization'                 : 'pathint', # 'EWC' (Kirkpatrick method) or 'pathint' (Zenke method)
     'learning_rate'                 : 0.001,
-    'task'                          : 'cifar',
+    'task'                          : 'fashion-mnist',
     'save_analysis'                 : True,
     'train_convolutional_layers'    : False,
     'reset_weights'                 : False, # Reset weights between tasks
@@ -89,7 +89,7 @@ def update_dependencies():
     par['n_layers'] = len(par['layer_dims'])
     #print('n_layers has been updated to', len(par['layer_dims']))
 
-    if par['task'] == 'mnist' or par['task'] == 'imagenet':
+    if par['task'] == 'mnist' or par['task'] == 'imagenet' or par['task'] == 'fashion-mnist':
         par['labels_per_task'] = 10
         #print('Labels per task is', par['labels_per_task'])
     elif par['task'] == 'cifar':
