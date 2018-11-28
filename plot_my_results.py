@@ -88,7 +88,10 @@ def plot_fashion_mnist():
     ax1 = fig1.add_subplot(111)
 
     for i in range(0, 3):
-        ax1.plot(all_accuracies[i, :], label=i)
+    	if i = 0 or 1:
+        	ax1.plot(all_accuracies[i, :], label=i)
+        else:
+        	ax1.plot(all_accuracies[i, 0:20], label=i)
 
     colormap = ['b', 'g', 'r']
     for i, j in enumerate(ax1.lines):
