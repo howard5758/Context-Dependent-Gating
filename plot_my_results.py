@@ -138,25 +138,26 @@ def plot_mnist():
 
 def plot_fashion_mnist():
     print('Ploting Fashion-mnist results')
-    savedir = './/savedir//fashion-mnist//'
+    savedir_fashion = './/savedir//fashion-mnist//'
+    savedir_mnist = './/savedir//mnist//'
+    savedir_cifar = './/savedir//cifar//'
 
-    ax1 = plt.subplots(1, 4, figsize=(4, 2.5))
+    ax1 = plt.subplots(1, 3, figsize=(4, 2.5))
     accuracy = {}
 
     ylim_min = 0.6
 
-    accuracy['SI_XdG'] = plot_best_result(ax1, savedir, 'mnist_SI_XdG', label='SI + XdG', linestyle = '-')
-    accuracy['SI_partial'] = plot_best_result(ax1, savedir, 'mnist_SI_partial', label='SI + partial', linestyle = '-')
-    accuracy['EWC_XdG'] = plot_best_result(ax1, savedir, 'mnist_EWC_XdG', label='EWC + XdG', linestyle = '--')
-    accuracy['EWC_partial'] = plot_best_result(ax1, savedir, 'mnist_EWC_partial', label='EWC + partial', linestyle = '--')
+    accuracy['fashion_mnist_SI_XdG'] = plot_best_result(ax1, savedir, 'fashion_mnist_SI_XdG', label='Fashion-MNIST', linestyle = '-')
+    accuracy['mnist_SI_XdG'] = plot_best_result(ax1, savedir, 'mnist_SI_XdG', label='MNIST', linestyle = '-')
+    accuracy['cifar_SI_XdG'] = plot_best_result(ax1, savedir, 'cifar_SI_XdG', label='CIFAR', linestyle = '-')
 
-    ax1.legend(ncol=4, fontsize=9)
+    ax1.legend(ncol=3, fontsize=9)
     ax1.grid(True)
     ax1.set_xlim(0,100)
     add_subplot_details(ax1, [ylim_min,1], [0,100], [])
 
     plt.tight_layout()
-    plt.savefig(savedir + 'fashion_mnist_results.png', format='png')
+    plt.savefig(savedir_fashion + 'fashion_mnist_results.png', format='png')
     plt.show()
 
 def plot_cifar():
@@ -185,7 +186,7 @@ def plot_cifar():
 
 
 print('Generating plots')
-plot_mnist()
-plot_cifar()
+#plot_mnist()
+#plot_cifar()
 plot_fashion_mnist()
     
