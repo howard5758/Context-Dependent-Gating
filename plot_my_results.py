@@ -138,7 +138,7 @@ def plot_mnist():
 
 def plot_fashion_mnist():
     print('Ploting Fashion-mnist results')
-    savedir_fashion = './/savedir//fashion-mnist//'
+    savedir_fashion = './/savedir//fashion_mnist//'
     savedir_mnist = './/savedir//mnist//'
     savedir_cifar = './/savedir//cifar//'
 
