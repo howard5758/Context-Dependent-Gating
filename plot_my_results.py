@@ -80,19 +80,20 @@ def plot_fashion_mnist():
 
     fashion_mnist = all_accuracies[0, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
     mnist = all_accuracies[1, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
-    cifar = all_accuracies[2, 0:20] = get_accuracy(savedir_cifar, 'cifar_SI_XdG')
+    cifar = all_accuracies[2, 0:20] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
     all_labels = ['Fashion MNIST', 'MNIST', 'CIFAR']  
 
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
 
-    for i in range(0, 2):
-    	ax1.plot(all_accuracies[i, :], label=i)
+    # all plotting first 50 tasks
+    for i in range(0, 3):
+    	ax1.plot(all_accuracies[i, 0:50], label=i)
         	
 
     # CIFAR only has 20 tasks
-    ax1.plot(all_accuracies[2, 0:20], label=2)
+    #ax1.plot(all_accuracies[2, 0:20], label=2)
 
     colormap = ['b', 'g', 'r']
     for i, j in enumerate(ax1.lines):
