@@ -215,8 +215,8 @@ class Stimulus:
                 if par['multihead']:
                     k = int(self.train_labels[ind[q[i]]])
                 else:
-                    #k = self.train_labels[ind[q[i]]][0]%self.labels_per_task
-                    k = self.train_labels[q[i]][0]%self.labels_per_task
+                    k = self.train_labels[ind[q[i]]][0]%self.labels_per_task
+
                 batch_labels[i,k] = 1
 
                 batch_data[i,:] = np.float32(np.reshape(self.train_images[ind[q[i]], :], (1,32,32,3), order='F'))/255

@@ -15,7 +15,7 @@ par = {
     'save_dir'                      : './savedir/',
     'stabilization'                 : 'pathint', # 'EWC' (Kirkpatrick method) or 'pathint' (Zenke method)
     'learning_rate'                 : 0.001,
-    'task'                          : 'fashion-mnist',
+    'task'                          : 'cifar',
     'save_analysis'                 : True,
     'train_convolutional_layers'    : False,
     'reset_weights'                 : False, # Reset weights between tasks
