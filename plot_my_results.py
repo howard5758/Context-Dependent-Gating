@@ -134,7 +134,7 @@ def plot_mix():
     # CIFAR only has 50 tasks
     #ax1.plot(all_accuracies[3, 0:50], label=3)
 
-    colormap = ['b', 'g', 'r', 'c', 'o']
+    colormap = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black']
     for i, j in enumerate(ax1.lines):
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
@@ -167,7 +167,7 @@ def plot_cifar():
     for i in range(0, 4):
         ax1.plot(all_accuracies[i, :], label=i)
 
-    colormap = ['b', 'g', 'r', 'c']
+    colormap = ['blue', 'green', 'red', 'cyan']
     for i, j in enumerate(ax1.lines):
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
