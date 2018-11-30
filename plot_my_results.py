@@ -128,7 +128,7 @@ def plot_mix():
     ax1 = fig1.add_subplot(111)
 
     # all plotting first 50 tasks
-    for i in range(0, 4):
+    for i in range(0, 5):
         ax1.plot(all_accuracies[i, :], label=i)
             
     # CIFAR only has 50 tasks
