@@ -137,7 +137,7 @@ def plot_mix():
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
 
-    ax1.legend(loc='center left', bbox_to_anchor=(0.5, 0.5), prop={'size': 4})
+    ax1.legend(loc='bottom left', prop={'size': 6})
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
