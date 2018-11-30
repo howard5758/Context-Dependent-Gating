@@ -342,6 +342,7 @@ class Stimulus:
         batch_data   = np.zeros((par['batch_size'], 28**2), dtype=np.float32)
         batch_labels = np.zeros((par['batch_size'], self.fashion_mnist_num_outputs), dtype=np.float32)
         
+        # percentage MNIST
         for i in range(0, int(par['batch_size']*percentage)):
             if test:
                 # Select images and labels from the testing set if required
@@ -353,6 +354,7 @@ class Stimulus:
                 batch_labels[i,k] = 1
                 batch_data[i,:] = self.mnist_train_images[mnist_q[i]][self.mnist_permutation[task_num]]
         
+        # (1-percentage) Fashion-MNIST
         for i in range(int(par['batch_size']*percentage), par['batch_size']):
             if test:
                 # Select images and labels from the testing set if required
@@ -377,13 +379,13 @@ class Stimulus:
         task_num = np.random.randint(par['n_tasks']) if task_num<0 else task_num
 
         if par['task'] == 'mix':
-            if task_num < 10:
-                # the first 10 tasks we want MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, 1, test)
+            if task_num < par['numMNIST']:
+                # the first par['numMNIST'] tasks we want MNIST
+                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage'], test)
                 mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             else:
-                # the next 90 tasks we want Fashion-MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, 0, test)
+                # the other tasks we want Fashion-MNIST
+                batch_data, batch_labels = self.generate_mix_batch(task_num, (1-par['percentage']), test)
                 mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             
             # Give the images, labels, and mask to the network

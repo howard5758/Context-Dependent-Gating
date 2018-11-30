@@ -49,6 +49,7 @@ par = {
     'n_subnetworks'                 : 5,     # only used when gating_type is set to split
 
     # for mix model only
+    'numMNIST'                      : 10,
     'percentage'                    : 0.8
 }
 
