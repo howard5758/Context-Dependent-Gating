@@ -127,18 +127,18 @@ def plot_mix():
     ax1 = fig1.add_subplot(111)
 
     # all plotting first 50 tasks
-    for i in range(0, 3):
+    for i in range(0, 4):
         ax1.plot(all_accuracies[i, :], label=i)
             
     # CIFAR only has 50 tasks
-    ax1.plot(all_accuracies[3, 0:50], label=3)
+    #ax1.plot(all_accuracies[3, 0:50], label=3)
 
     colormap = ['b', 'g', 'r', 'c']
     for i, j in enumerate(ax1.lines):
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
 
-    ax1.legend(loc='bottom left', prop={'size': 6})
+    ax1.legend(loc='lower left', prop={'size': 6})
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
