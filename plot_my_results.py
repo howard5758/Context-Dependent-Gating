@@ -24,6 +24,7 @@ def plot_mnist():
 
     print('Ploting mnist results')
     savedir = 'savedir/mnist/'
+    png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
 
     all_accuracies = np.zeros((4, 100))
@@ -56,7 +57,7 @@ def plot_mnist():
     ax1.set_title('Accuracies of four combinations on MNIST dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
-    plt.savefig(savedir + 'mnist_results.png', format='png')
+    plt.savefig(png_OutPath + 'mnist_results.png', format='png')
     plt.show()
 
 
@@ -67,6 +68,7 @@ def plot_fashion_mnist():
     savedir_mnist = 'savedir/mnist/'
     savedir_cifar = 'savedir/cifar/'
 
+    png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
     all_accuracies = np.zeros((4, 100))
 
@@ -96,7 +98,7 @@ def plot_fashion_mnist():
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
-    plt.savefig(savedir_fashion + 'fashion_mnist_results.png', format='png')
+    plt.savefig(png_OutPath + 'fashion_mnist_results.png', format='png')
     plt.show()
 
 
@@ -109,6 +111,8 @@ def plot_mix():
     savedir_mix = 'savedir/mix/'
     savedir_cifar = 'savedir/cifar/'
 
+    png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
+
     all_accuracies = np.zeros((4, 100))
 
     mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
@@ -116,7 +120,7 @@ def plot_mix():
     mix = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_First10')
     cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
-    all_labels = ['MNIST', 'Fashion MNIST', 'MNIST with Fashion-MNIST permutation', 'CIFAR']  
+    all_labels = ['MNIST', 'Fashion MNIST', 'First 10 MNIST + Fashion-MNIST', 'CIFAR']  
 
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
@@ -133,17 +137,19 @@ def plot_mix():
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
 
-    ax1.legend(loc='center left', bbox_to_anchor=(0.5, 0.5))
+    ax1.legend(loc='center left', bbox_to_anchor=(0.5, 0.5), prop={'size': 4})
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
-    plt.savefig(savedir_mix + 'mix_results.png', format='png')
+    plt.savefig(png_OutPath + 'mix_results.png', format='png')
     plt.show()
 
 def plot_cifar():
 
     print('Ploting cifar results')
     savedir = 'savedir/cifar/'
+
+    png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
     all_accuracies = np.zeros((4, 20))
 
@@ -169,7 +175,7 @@ def plot_cifar():
     plt.xticks([0, 5, 10, 15, 20])
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
-    plt.savefig(savedir + 'cifar_results.png', format='png')
+    plt.savefig(png_OutPath + 'cifar_results.png', format='png')
     plt.show()
 
 
