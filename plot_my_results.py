@@ -108,6 +108,46 @@ def plot_fashion_mnist():
     plt.show()
 
 
+def plot_mix():
+
+    print('Ploting MNIST and Fashion-MNIST results')
+    
+    savedir_mnist = 'savedir/mnist/'
+    savedir_fashion = 'savedir/fashion_mnist/'
+    savedir_mix = 'savedir/mix/'
+    savedir_cifar = 'savedir/cifar/'
+
+    all_accuracies = np.zeros((4, 100))
+
+    mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
+    fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
+    mix = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG')
+    cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
+
+    all_labels = ['MNIST', 'Fashion MNIST', 'MNIST with Fashion-MNIST permutation', 'CIFAR']  
+
+    fig1 = plt.figure()
+    ax1 = fig1.add_subplot(111)
+
+    # all plotting first 50 tasks
+    for i in range(0, 3):
+        ax1.plot(all_accuracies[i, :], label=i)
+            
+    # CIFAR only has 50 tasks
+    ax1.plot(all_accuracies[3, 0:50], label=3)
+
+    colormap = ['b', 'g', 'r']
+    for i, j in enumerate(ax1.lines):
+        j.set_color(colormap[i])
+        j.set_label(all_labels[i])
+
+    ax1.legend(loc=1)
+    ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
+    plt.xlabel('Number of tasks')
+    plt.ylabel('Accuracy')
+    plt.savefig(savedir_mix + 'mix_results.png', format='png')
+    plt.show()
+
 def plot_cifar():
 
     print('Ploting cifar results')

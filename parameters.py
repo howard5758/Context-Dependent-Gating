@@ -93,7 +93,7 @@ def update_dependencies():
 
     # Used to be 5, but changed to 2 since we want to run 50 tasks
     elif par['task'] == 'cifar':
-        par['labels_per_task'] = 2
+        par['labels_per_task'] = 5
     
     gen_gating()
     #print('Finished generating gating for hidden units')

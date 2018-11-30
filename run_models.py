@@ -41,6 +41,17 @@ fashion_mnist_updates = {
     'multihead'             : False
     }
 
+mix_updates = {
+    'layer_dims'            : [784, 2000, 2000, 10],
+    'n_tasks'               : 100,
+    'task'                  : 'mix',
+    'save_dir'              : './savedir/',
+    'n_train_batches'       : 3906,
+    'drop_keep_pct'         : 0.5,
+    'input_drop_keep_pct'   : 1.0,
+    'multihead'             : False
+    }
+
 cifar_updates = {
     'layer_dims'            : [4096, 1000, 1000, 5],
     'n_tasks'               : 50,
@@ -94,6 +105,15 @@ def run_fashion_mnist_SI_model(gpu_id):
     save_fn = 'fashion_mnist_SI_XdG.pkl'
     try_model(save_fn, gpu_id)
 
+# Use Fashion-MNIST and its permutations as the forgetting task for MNIST
+def run_mix_model(gpu_id):
+    print('MNIST - Fashion MNIST mixed training')
+    update_parameters(mix_updates)
+    update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 0.8})
+    update_parameters({'stabilization': 'pathint', 'omega_c': 0.035, 'omega_xi': 0.01})
+    save_fn = 'Mix_SI_XdG.pkl'
+    try_model(save_fn, gpu_id)
+
 # training a network on 20 sequential CIFAR permutations using synaptic intelligence 
 # and context-dependent gating (XdG) 
 def run_cifar_SI_model(gpu_id):
@@ -102,7 +122,7 @@ def run_cifar_SI_model(gpu_id):
     update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 1.0})
     update_parameters({'stabilization': 'pathint', 'omega_c': 0.75, 'omega_xi': 0.01})
     update_parameters({'train_convolutional_layers': False})
-    save_fn = 'cifar_SI_XdG_50.pkl'
+    save_fn = 'cifar_SI_XdG_100.pkl'
     try_model(save_fn, gpu_id)
 
 # training a network on 100 sequential Imagenet tasks using synaptic intelligence 
@@ -133,12 +153,19 @@ if __name__ == "__main__":
     print('SI_XdG finished, took', fashion_mnist_run_time, 'seconds')
     '''
     
+    mix_start_time = time.time()
+    run_mix_model("0")
+    mix_end_time = time.time()
+    mix_run_time = mix_end_time - mix_start_time
+    print('Mix SI-XdG finished, took', mix_run_time, 'seconds')
+
+    '''
     cifar_start_time = time.time()
     run_cifar_SI_model("0")
     cifar_end_time = time.time()
     cifar_run_time = cifar_end_time - cifar_start_time
     print('cifar_SI_XdG finished, took', cifar_run_time, 'seconds')
-    
+    '''
     
     '''
     imagenet_start_time = time.time()
