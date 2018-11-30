@@ -16,12 +16,6 @@ def get_accuracy(data_dir, prefix, color = [0,0,1], split = 1, description = [],
             x = pickle.load(open(data_dir + full_fn, 'rb'))
             task_accuracy.append(x['accuracy_full'])
 
-    # accuracies = np.zeros(len(task_accuracy[0]))
-
-
-    # for i in range(0, len(task_accuracy[0])):
-    #     accuracies[i] = task_accuracy[0][i]
-
     return task_accuracy[0]
 
 
@@ -119,7 +113,7 @@ def plot_mix():
 
     mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
     fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
-    mix = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG')
+    mix = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_First10')
     cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
     all_labels = ['MNIST', 'Fashion MNIST', 'MNIST with Fashion-MNIST permutation', 'CIFAR']  
@@ -139,7 +133,7 @@ def plot_mix():
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
 
-    ax1.legend(loc=1)
+    ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')

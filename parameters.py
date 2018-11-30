@@ -47,6 +47,9 @@ par = {
     'gating_type'                   : 'XdG', # can be 'XdG', 'partial', 'split' or None
     'gate_pct'                      : 0.8,   # percentage of hidden units to gate. Only used when gating_type is set to XdG
     'n_subnetworks'                 : 5,     # only used when gating_type is set to split
+
+    # for mix model only
+    'percentage'                    : 0.8
 }
 
 ############################
