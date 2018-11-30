@@ -16,15 +16,13 @@ def get_accuracy(data_dir, prefix, color = [0,0,1], split = 1, description = [],
             x = pickle.load(open(data_dir + full_fn, 'rb'))
             task_accuracy.append(x['accuracy_full'])
 
-    accuracies = np.zeros(len(task_accuracy[0]))
-    task = np.zeros(len(task_accuracy[0]))
+    # accuracies = np.zeros(len(task_accuracy[0]))
 
 
-    for i in range(0, len(task_accuracy[0])):
-        task[i] = i
-        accuracies[i] = task_accuracy[0][i]
+    # for i in range(0, len(task_accuracy[0])):
+    #     accuracies[i] = task_accuracy[0][i]
 
-    return accuracies
+    return task_accuracy
 
 
 
