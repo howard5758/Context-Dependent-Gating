@@ -109,7 +109,7 @@ def plot_mix():
     savedir_mnist = 'savedir/mnist/'
     savedir_fashion = 'savedir/fashion_mnist/'
     savedir_mix = 'savedir/mix/'
-    savedir_cifar = 'savedir/cifar/'
+    #savedir_cifar = 'savedir/cifar/'
 
     png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
@@ -117,10 +117,11 @@ def plot_mix():
 
     mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
     fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
-    mix = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_First10')
-    cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
+    mix_10_100 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100')
+    mix_10_80 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_80')
+    #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
-    all_labels = ['MNIST', 'Fashion MNIST', 'First 10 MNIST + Fashion-MNIST', 'CIFAR']  
+    all_labels = ['MNIST', 'Fashion MNIST', '10 100% MNIST + 90 100% Fashion-MNIST', '10 80% MNIST + 90 80% Fashion-MNIST']  
 
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
