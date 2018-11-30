@@ -10,11 +10,11 @@ def get_accuracy(data_dir, prefix, color = [0,0,1], split = 1, description = [],
 
     task_accuracy = []
 
-    for full_fn in os.listdir(data_dir):
-        if full_fn.startswith(prefix):
-            print('Found file', full_fn)
-            x = pickle.load(open(data_dir + full_fn, 'rb'))
-            task_accuracy.append(x['accuracy_full'])
+    #for full_fn in os.listdir(data_dir):
+        #if full_fn.startswith(prefix):
+            #print('Found file', full_fn)
+    x = pickle.load(open(data_dir + full_fn, 'rb'))
+    task_accuracy.append(x['accuracy_full'])
 
     # accuracies = np.zeros(len(task_accuracy[0]))
 
