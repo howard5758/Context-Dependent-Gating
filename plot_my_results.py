@@ -123,7 +123,12 @@ def plot_mix():
     mix_10_40 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60')
     #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
-    all_labels = ['MNIST', 'Fashion MNIST', '10 100% MNIST + 90 100% Fashion-MNIST', '10 80% MNIST + 90 80% Fashion-MNIST', '10 60% MNIST + 90 60% Fashion-MNIST']  
+    all_labels = ['MNIST', 
+                  'Fashion MNIST', 
+                  '10 100% MNIST + 90 100% Fashion-MNIST', 
+                  '10 80% MNIST + 90 80% Fashion-MNIST', 
+                  '10 60% MNIST + 90 60% Fashion-MNIST',
+                  '10 40% MNIST + 90 40% Fashion-MNIST']  
 
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
