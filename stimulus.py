@@ -381,11 +381,11 @@ class Stimulus:
         if par['task'] == 'mix':
             if task_num < par['numMNIST']:
                 # the first par['numMNIST'] tasks we want MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage'], test)
+                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_1'], test)
                 mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             else:
                 # the other tasks we want Fashion-MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, (1-par['percentage']), test)
+                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_2'], test)
                 mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             
             # Give the images, labels, and mask to the network

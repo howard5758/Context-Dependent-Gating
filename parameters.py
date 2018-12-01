@@ -50,7 +50,8 @@ par = {
 
     # for mix model only
     'numMNIST'                      : 10,
-    'percentage'                    : 0.8
+    'percentage_1'                  : 0.8,
+    'percentage_2'                  : 0.8
 }
 
 ############################
