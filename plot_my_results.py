@@ -120,7 +120,7 @@ def plot_mix():
     mix_10_100 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100')
     mix_10_80 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_80')
     mix_10_60 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60')
-    mix_10_40 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60')
+    mix_10_40 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_40')
     #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
     all_labels = ['MNIST', 
