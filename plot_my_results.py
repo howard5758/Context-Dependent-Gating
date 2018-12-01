@@ -172,18 +172,20 @@ def plot_mix(type):
         # 7 results in total
         mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
-        review_10_10 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
+        review_10_0 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
+        review_10_10 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
         #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
         all_labels = ['MNIST', 
                       'Fashion MNIST', 
+                      'No review',
                       'Review every 10 tasks',
                       'Review every 20 tasks']  
 
         fig1 = plt.figure()
         ax1 = fig1.add_subplot(111)
 
-        for i in range(0, 3):
+        for i in range(0, 4):
             ax1.plot(all_accuracies[i, :], label=i)
                 
         # CIFAR only has 50 tasks
