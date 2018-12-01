@@ -120,7 +120,7 @@ def plot_mix():
     
 
     mix_10_100_0 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_0')
-    mix_10_100_50 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_0')
+    mix_10_100_50 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_50')
 
     mix_10_80_20 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_80_20')
     mix_10_60_40 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60_40')
