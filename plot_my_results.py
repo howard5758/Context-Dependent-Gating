@@ -245,6 +245,6 @@ print('Generating plots')
 #plot_mnist()
 #plot_cifar()
 #plot_fashion_mnist()
-plot_mix()
+plot_mix('ReviewTraining')
 
     
