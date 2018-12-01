@@ -380,13 +380,29 @@ class Stimulus:
 
         if par['task'] == 'mix':
             if task_num < par['numMNIST']:
-                # the first par['numMNIST'] tasks we want MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_1'], test)
-                mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+                # when in doReview mode, first par['numMNIST'] task we want 100 percent MNIST
+                if par['doReview']:
+                    batch_data, batch_labels = self.generate_mix_batch(task_num, 1, test)
+                    mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+                # when not in doReview mode, first par['numMNIST'] task we use percentage_1 percent MNIST
+                else:
+                    # the first par['numMNIST'] tasks we want percentage_1 MNIST
+                    batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_1'], test)
+                    mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             else:
-                # the other tasks we want Fashion-MNIST
-                batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_2'], test)
-                mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+                # when in doReview mode, review the 100% MNIST task every reviewFreq task, other than that, we need 100% Fashion-MNIST
+                if par['doReview']:
+                    if task_num%par['reviewFreq']==0:
+                        batch_data, batch_labels = self.generate_mix_batch(task_num, 1, test)
+                        mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+                    else:
+                        batch_data, batch_labels = self.generate_mix_batch(task_num, 0, test)
+                        mask = np.ones((par['batch_size'], 10), dtype=np.float32)
+                # when not in doReviewmode, we use percentage_2 percent MNIST for the rest of tasks
+                else:
+                    # the other tasks we want percentage_2 MNIST
+                    batch_data, batch_labels = self.generate_mix_batch(task_num, par['percentage_2'], test)
+                    mask = np.ones((par['batch_size'], 10), dtype=np.float32)
             
             # Give the images, labels, and mask to the network
             return batch_data, batch_labels, mask

@@ -111,10 +111,15 @@ def run_mix_model(gpu_id):
     update_parameters(mix_updates)
     update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 0.8})
     update_parameters({'stabilization': 'pathint', 'omega_c': 0.035, 'omega_xi': 0.01})
+    # added parameters by Zhuokai
+    # choose if we are doing review, at a frequency of every 'reviewFreq' task
+    update_parameters({'doReview': True, 'reviewFreq': 20})
     # numMNIST is the number of first several tasks that we intend to train with MNIST
     # both percentage 1 and 2 are the percentage of MNIST data in one task
     update_parameters({'numMNIST': 10, 'percentage_1': 1, 'percentage_2': 0.5})
-    save_fn = 'mix_SI_XdG_10_100_50.pkl'
+    # naming 1: mix_SI_XdG_numMNIST_percentage1_percentage2.pkl
+    # naming 2: mix_SI_XdG_Review_numMNIST_reviewFreq.pkl
+    save_fn = 'review_SI_XdG_10_20.pkl'
     try_model(save_fn, gpu_id)
 
 # training a network on 20 sequential CIFAR permutations using synaptic intelligence 
