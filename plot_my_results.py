@@ -113,13 +113,14 @@ def plot_mix():
 
     png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
-    all_accuracies = np.zeros((5, 100))
+    all_accuracies = np.zeros((6, 100))
 
     mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
     fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
     mix_10_100 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100')
     mix_10_80 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_80')
     mix_10_60 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60')
+    mix_10_40 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_60')
     #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
     all_labels = ['MNIST', 'Fashion MNIST', '10 100% MNIST + 90 100% Fashion-MNIST', '10 80% MNIST + 90 80% Fashion-MNIST', '10 60% MNIST + 90 60% Fashion-MNIST']  
@@ -128,7 +129,7 @@ def plot_mix():
     ax1 = fig1.add_subplot(111)
 
     # all plotting first 50 tasks
-    for i in range(0, 5):
+    for i in range(0, 6):
         ax1.plot(all_accuracies[i, :], label=i)
             
     # CIFAR only has 50 tasks
@@ -143,7 +144,7 @@ def plot_mix():
     ax1.set_title('Accuracies of SI-XdG combinations on Fashion-MNIST, MNIST, CIFAR dataset')
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
-    plt.savefig(png_OutPath + 'mix_results.png', format='png')
+    plt.savefig(png_OutPath + 'mix_results_10_40.png', format='png')
     plt.show()
 
 def plot_cifar():
