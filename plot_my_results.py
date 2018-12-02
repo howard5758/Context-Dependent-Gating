@@ -173,14 +173,16 @@ def plot_mix(type):
         mnist = all_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
         review_10_0 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
-        review_10_5 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
-        review_10_10 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
-        review_10_20 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20') 
+        review_10_2 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
+        review_10_5 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
+        review_10_10 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
+        review_10_20 = all_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20') 
         #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
         all_labels = ['MNIST', 
                       'Fashion MNIST', 
                       'No review',
+                      'Review every 2 tasks',
                       'Review every 5 tasks',
                       'Review every 10 tasks',
                       'Review every 20 tasks']  
