@@ -132,7 +132,7 @@ def plot_mix(type):
         mix_png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/MixTraining/'
 
         #********************************************** Graph 1 - the influence of mixtraining **********************************************
-        mix1_accuracies = np.zeros((20, 100))
+        mix1_accuracies = np.zeros((4, 100))
 
         mnist = mix1_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = mix1_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
@@ -154,7 +154,7 @@ def plot_mix(type):
 
         #***************************** Graph 2 - comparisons between mix data in all training tasks ***************************************
 
-        mix2_accuracies = np.zeros((20, 100))
+        mix2_accuracies = np.zeros((6, 100))
 
         # 6 results in total
         mnist = mix2_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
@@ -198,9 +198,9 @@ def plot_mix(type):
         fashion_mnist = review1_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
         review_10_0 = review1_accuracies[1, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
         review_10_2 = review1_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
-        review_10_5 = review1_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
-        review_10_10 = review1_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
-        review_10_20 = review1_accuracies[7, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20')
+        review_10_5 = review1_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
+        review_10_10 = review1_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
+        review_10_20 = review1_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20')
 
         review1_labels = ['SI+XdG - Pure MNIST',
                           'SI+XdG - Pure Fashion-MNIST',
@@ -219,7 +219,7 @@ def plot_mix(type):
 
 
         #***************************** Graph 2 - the relationships between different numbers of first tasks ********************************
-        review2_accuracies = np.zeros((7, 100))
+        review2_accuracies = np.zeros((5, 100))
         
         mnist = review2_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = review2_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
