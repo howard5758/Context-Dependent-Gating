@@ -101,7 +101,7 @@ def plot_mix(type):
 #*******************************                                                                      ***************************************
 #********************************************************************************************************************************************
     if type == 'General':
-        print('Ploting MNIST, Fashion-MNIST and CIFAR Training results\n')
+        print('Ploting general graph')
         general_png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/'
 
         general_accuracies = np.zeros((3, 100))
@@ -127,12 +127,12 @@ def plot_mix(type):
 #********************************************************                     ***************************************************************
 #********************************************************************************************************************************************
     elif type == 'MixTraining':
-        print('Ploting MNIST and Fashion-MNIST MixTraining results')
+        print('\nPloting MNIST and Fashion-MNIST MixTraining results')
         savedir_mix = 'savedir/mix/' + type + '/'
         mix_png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/MixTraining/'
 
         #********************************************** Graph 1 - the influence of mixtraining **********************************************
-        print('Ploting Mix graph 1\n')
+        print('Ploting mix graph 1')
         mix1_accuracies = np.zeros((4, 100))
 
         mnist = mix1_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
@@ -154,7 +154,7 @@ def plot_mix(type):
         make_plots(CIFAR_Mix1, mix1_accuracies, mix1_labels, mix_png_OutPath, mix1_name, mix1_title, showMixGraph1)
 
         #***************************** Graph 2 - comparisons between mix data in all training tasks ***************************************
-        print('Ploting Mix graph 2\n')
+        print('Ploting mix graph 2')
         mix2_accuracies = np.zeros((6, 100))
 
         # 6 results in total
@@ -188,12 +188,12 @@ def plot_mix(type):
 #***************************************************                        *****************************************************************
 #********************************************************************************************************************************************
     elif type == 'ReviewTraining':
-        print('Ploting MNIST and Fashion-MNIST ReviewTraining results\n')
+        print('\nPloting MNIST and Fashion-MNIST ReviewTraining results\n')
         savedir_mix = 'savedir/mix/' + type + '/'
         review_png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/ReviewTraining/'
 
         #***************************** Graph 1 - the relationships between different review frequence ***************************************
-        print('Ploting Review graph 1\n')
+        print('Ploting review graph 1')
         review1_accuracies = np.zeros((7, 100))
         
         mnist = review1_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
@@ -221,7 +221,7 @@ def plot_mix(type):
 
 
         #***************************** Graph 2 - the relationships between different numbers of first tasks ********************************
-        print('Ploting Review graph 2\n')
+        print('Ploting review graph 2')
         review2_accuracies = np.zeros((5, 100))
         
         mnist = review2_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
@@ -245,7 +245,7 @@ def plot_mix(type):
         
         
         #***************************** Graph 3 - the comparisons between different methods (SI vs EWC) ***********************************
-        print('Ploting Review graph 3\n')
+        print('Ploting review graph 3')
         review3_accuracies = np.zeros((3, 100))
         
         mnist = review3_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
