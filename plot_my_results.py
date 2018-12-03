@@ -169,7 +169,7 @@ def plot_mix(type):
                        'Pure Fashion MNIST', 
                        'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
                        'First 10 tasks trained with 80% MNIST, 20% Fashion-MNIST, later 90 tasks trained with 20% MNIST, 80% Fashion-MNIST',
-                       'First 10 tasks trained with 60% MNIST, 40% Fashion-MNIST, later 90 tasks trained with 40% MNIST, 60% Fashion-MNIST' 
+                       'First 10 tasks trained with 60% MNIST, 40% Fashion-MNIST, later 90 tasks trained with 40% MNIST, 60% Fashion-MNIST', 
                        'First 10 tasks trained with 40% MNIST, 60% Fashion-MNIST, later 90 tasks trained with 60% MNIST, 40% Fashion-MNIST'] 
 
         CIFAR_Mix2 = False
