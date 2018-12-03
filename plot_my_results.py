@@ -110,8 +110,8 @@ def plot_mix(type):
         cifar = general_accuracies[2, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
         general_labels = ['MNIST',
-                         'Fashion-MNIST',
-                         'CIFAR']
+                          'Fashion-MNIST',
+                          'CIFAR']
 
         CIFARinGeneral = True
         general_name = 'Fashion-MNIST.png'
@@ -141,9 +141,9 @@ def plot_mix(type):
         # We need to a couple more experiments in this category
         
         mix1_labels = ['Pure MNIST', 
-                      'Pure Fashion MNIST', 
-                      'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
-                      'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 50% MNIST, 50% Fashion-MNIST']
+                       'Pure Fashion MNIST', 
+                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
+                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 50% MNIST, 50% Fashion-MNIST']
 
         CIFAR_Mix1 = False
         mix1_name = 'MixTraining_1.png'
