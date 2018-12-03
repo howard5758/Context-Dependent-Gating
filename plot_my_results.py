@@ -30,7 +30,9 @@ def make_plots(withCIFAR, accuracies, all_labels, outputPath, graph_name, graph_
             ax.plot(accuracies[i, :], label=i)
         ax.plot(accuracies[2, 0:50], label=2)
     else:
+        print(accuracies.size)
         for i in range(0, accuracies.size):
+            print(i)
             ax.plot(accuracies[i, :], label=i)
 
     # for now 7 seven basic colors are provided
