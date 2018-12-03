@@ -12,7 +12,7 @@ def get_accuracy(data_dir, prefix, color = [0,0,1], split = 1, description = [],
 
     for full_fn in os.listdir(data_dir):
         if full_fn.startswith(prefix):
-            print('Found file', full_fn)
+            #print('Found file', full_fn)
             x = pickle.load(open(data_dir + full_fn, 'rb'))
             task_accuracy.append(x['accuracy_full'])
 
@@ -198,8 +198,8 @@ def plot_mix(type):
         
         mnist = review1_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = review1_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
-        review_10_0 = review1_accuracies[1, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
-        review_10_2 = review1_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
+        review_10_0 = review1_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
+        review_10_2 = review1_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
         review_10_5 = review1_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
         review_10_10 = review1_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
         review_10_20 = review1_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20')
