@@ -40,8 +40,8 @@ def make_plots(withCIFAR, accuracies, all_labels, outputPath, graph_name, graph_
         j.set_color(colormap[i])
         j.set_label(all_labels[i])
 
-    ax1.legend(loc='lower left', prop={'size': 6})
-    ax1.set_title(graph_title)
+    ax.legend(loc='lower left', prop={'size': 6})
+    ax.set_title(graph_title)
     plt.xlabel('Number of tasks')
     plt.ylabel('Accuracy')
     plt.savefig(outputPath + graph_name, format='png')
