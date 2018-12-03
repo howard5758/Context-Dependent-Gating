@@ -165,12 +165,12 @@ def plot_mix(type):
         mix_10_40_60 = mix2_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_40_60')
         # We need to run more experiments here
 
-        all_labels = ['Pure MNIST', 
-                      'Pure Fashion MNIST', 
-                      'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
-                      'First 10 tasks trained with 80% MNIST, 20% Fashion-MNIST, later 90 tasks trained with 20% MNIST, 80% Fashion-MNIST',
-                      'First 10 tasks trained with 60% MNIST, 40% Fashion-MNIST, later 90 tasks trained with 40% MNIST, 60% Fashion-MNIST' 
-                      'First 10 tasks trained with 40% MNIST, 60% Fashion-MNIST, later 90 tasks trained with 60% MNIST, 40% Fashion-MNIST'] 
+        mix2_labels = ['Pure MNIST', 
+                       'Pure Fashion MNIST', 
+                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
+                       'First 10 tasks trained with 80% MNIST, 20% Fashion-MNIST, later 90 tasks trained with 20% MNIST, 80% Fashion-MNIST',
+                       'First 10 tasks trained with 60% MNIST, 40% Fashion-MNIST, later 90 tasks trained with 40% MNIST, 60% Fashion-MNIST' 
+                       'First 10 tasks trained with 40% MNIST, 60% Fashion-MNIST, later 90 tasks trained with 60% MNIST, 40% Fashion-MNIST'] 
 
         CIFAR_Mix2 = False
         mix2_name = 'MixTraining_2.png'
