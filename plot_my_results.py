@@ -183,7 +183,7 @@ def plot_mix(type):
         all_labels = ['MNIST', 
                       #'Fashion MNIST', 
                       'No review',
-                      'Review every 2 tasks after first 20 tasks'
+                      'Review every 2 tasks after first 20 tasks',
                       'Review every 2 tasks after first 10 tasks',
                       'Review every 5 tasks after first 10 tasks',
                       'Review every 10 tasks after first 10 tasks',
