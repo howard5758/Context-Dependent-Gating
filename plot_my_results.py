@@ -174,25 +174,27 @@ def plot_mix(type):
         #fashion_mnist = all_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
         review_10_0 = all_accuracies[1, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_0')
         review_10_2 = all_accuracies[2, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
-        review_20_2 = all_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_20_2')
-        review_10_5 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
-        review_10_10 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
-        review_10_20 = all_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20') 
-        #cifar = all_accuracies[3, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
+        review_10_2_EWC = all_accuracies[3, :] = get_accuracy(savedir_mix, 'review_EWC_XdG_10_2')
+        #review_20_2 = all_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_20_2')
+        #review_10_5 = all_accuracies[5, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_5')
+        #review_10_10 = all_accuracies[6, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_10') 
+        #review_10_20 = all_accuracies[7, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_20') 
+        #cifar = all_accuracies[8, 0:50] = get_accuracy(savedir_cifar, 'cifar_SI_XdG_50')
 
         all_labels = ['MNIST', 
                       #'Fashion MNIST', 
-                      'No review',
-                      'Review every 2 tasks after first 20 tasks',
-                      'Review every 2 tasks after first 10 tasks',
-                      'Review every 5 tasks after first 10 tasks',
-                      'Review every 10 tasks after first 10 tasks',
-                      'Review every 20 tasks after first 10 tasks']  
+                      'SI+XdG - No review',
+                      'SI+XdG - Review every 2 tasks after first 20 tasks',
+                      'EWC+XdG - Review every 2 tasks after first 20 tasks',
+                      'SI+XdG - Review every 2 tasks after first 10 tasks',
+                      'SI+XdG - Review every 5 tasks after first 10 tasks',
+                      'SI+XdG - Review every 10 tasks after first 10 tasks',
+                      'SI+XdG - Review every 20 tasks after first 10 tasks']  
 
         fig1 = plt.figure()
         ax1 = fig1.add_subplot(111)
 
-        for i in range(0, 6):
+        for i in range(0, 4):
             ax1.plot(all_accuracies[i, :], label=i)
                 
         # CIFAR only has 50 tasks
@@ -207,7 +209,7 @@ def plot_mix(type):
         ax1.set_title('Accuracies of SI-XdG on MNIST dataset with review')
         plt.xlabel('Number of tasks')
         plt.ylabel('Accuracy')
-        plt.savefig(png_OutPath + 'ReviewTraing2.png', format='png')
+        plt.savefig(png_OutPath + 'ReviewTraing_SI_vs_EWC.png', format='png')
         plt.show()
 
     else:
