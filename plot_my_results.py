@@ -249,14 +249,14 @@ def plot_mix(type):
         
         #***************************** Graph 3 - the comparisons between different methods (SI vs EWC) ***********************************
         print('Ploting review graph 3')
-        review3_accuracies = np.zeros((6, 100))
+        review3_accuracies = np.zeros((4, 100))
         
         mnist_SI_XdG = review3_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         mnist_EWC_XdG = review3_accuracies[1, :] = get_accuracy(savedir_mnist, 'mnist_EWC_XdG')
         fashion_mnist_SI_XdG = review3_accuracies[2, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
         fashion_mnist_EWC_XdG = review3_accuracies[3, :] = get_accuracy(savedir_fashion, 'fashion_mnist_EWC_XdG')
-        review_10_2 = review3_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
-        review_10_2_EWC = review3_accuracies[5, :] = get_accuracy(savedir_mix, 'review_EWC_XdG_10_2')
+        #review_10_2 = review3_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
+        #review_10_2_EWC = review3_accuracies[5, :] = get_accuracy(savedir_mix, 'review_EWC_XdG_10_2')
         
         review3_labels = ['SI+XdG - Pure MNIST',
                           'EWC+XdG - Pure MNIST',
@@ -266,7 +266,7 @@ def plot_mix(type):
                           'EWC+XdG - 10 tasks train with M, 90 tasks trained with F-M, review M every 2 tasks']  
 
         CIFAR_Review3 = False
-        review3_name = 'ReviewTraining_3.png'
+        review3_name = 'ReviewTraining_3_SIvsXdG.png'
         review3_title = 'Comparisons between SI+XdG and EWC+SdG with Fashion-MNIST'
         showReviewGraph3 = False
 
