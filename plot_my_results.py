@@ -267,7 +267,7 @@ def plot_mix(type):
 
         CIFAR_Review3 = False
         review3_name = 'ReviewTraining_3_SIvsEWC.png'
-        review3_title = 'Comparisons between SI+XdG and EWC+SdG with Fashion-MNIST'
+        review3_title = 'Comparisons between SI+XdG and EWC+XdG with Fashion-MNIST'
         showReviewGraph3 = False
 
         make_plots(CIFAR_Review3, review3_accuracies, review3_labels, review_png_OutPath, review3_name, review3_title, showReviewGraph3)
