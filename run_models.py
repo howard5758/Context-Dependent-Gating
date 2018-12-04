@@ -101,8 +101,8 @@ def run_fashion_mnist_SI_model(gpu_id):
     print('Fashion-MNIST - Synaptic Stabilization = SI - Gating = 80%')
     update_parameters(fashion_mnist_updates)
     update_parameters({'gating_type': 'XdG','gate_pct': 0.8, 'input_drop_keep_pct': 0.8})
-    update_parameters({'stabilization': 'pathint', 'omega_c': 0.035, 'omega_xi': 0.01})
-    save_fn = 'fashion_mnist_SI_XdG.pkl'
+    update_parameters({'stabilization': 'EWC', 'omega_c': 0.035, 'omega_xi': 0.01})
+    save_fn = 'fashion_mnist_EWC_XdG.pkl'
     try_model(save_fn, gpu_id)
 
 # Use Fashion-MNIST and its permutations as the forgetting task for MNIST
@@ -113,13 +113,13 @@ def run_mix_model(gpu_id):
     update_parameters({'stabilization': 'pathint', 'omega_c': 0.035, 'omega_xi': 0.01})
     # added parameters by Zhuokai
     # choose if we are doing review, at a frequency of every 'reviewFreq' task
-    update_parameters({'doReview': True, 'reviewFreq': 2})
+    update_parameters({'doReview': False, 'reviewFreq': 2})
     # numMNIST is the number of first several tasks that we intend to train with MNIST
     # both percentage 1 and 2 are the percentage of MNIST data in one task
-    update_parameters({'numMNIST': 40, 'percentage_1': 1, 'percentage_2': 0.5})
+    update_parameters({'numMNIST': 10, 'percentage_1': 1, 'percentage_2': 0.75})
     # naming 1: mix_SI_XdG_numMNIST_percentage1_percentage2.pkl
     # naming 2: mix_SI_XdG_Review_numMNIST_reviewFreq.pkl
-    save_fn = 'review_SI_XdG_40_2.pkl'
+    save_fn = 'mix_SI_XdG_10_100_75.pkl'
     try_model(save_fn, gpu_id)
 
 # training a network on 20 sequential CIFAR permutations using synaptic intelligence 
@@ -153,20 +153,20 @@ if __name__ == "__main__":
     mnist_run_time = mnist_end_time - mnist_start_time
     print('EWC_XdG finished, took', mnist_run_time, 'seconds')
     '''
-    '''
+    
     fashoin_mnist_start_time = time.time()
     run_fashion_mnist_SI_model("0")
     fashoin_mnist_end_time = time.time()
     fashion_mnist_run_time = fashoin_mnist_end_time - fashoin_mnist_start_time
-    print('SI_XdG finished, took', fashion_mnist_run_time, 'seconds')
-    '''
+    print('EWC_XdG finished, took', fashion_mnist_run_time, 'seconds')
     
+    '''
     mix_start_time = time.time()
     run_mix_model("0")
     mix_end_time = time.time()
     mix_run_time = mix_end_time - mix_start_time
     print('Mix SI-XdG finished, took', mix_run_time, 'seconds')
-
+    '''
     '''
     cifar_start_time = time.time()
     run_cifar_SI_model("0")

@@ -133,22 +133,25 @@ def plot_mix(type):
 
         #********************************************** Graph 1 - the influence of mixtraining **********************************************
         print('Ploting mix graph 1')
-        mix1_accuracies = np.zeros((4, 100))
+        mix1_accuracies = np.zeros((6, 100))
 
         mnist = mix1_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
         fashion_mnist = mix1_accuracies[1, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
         mix_10_100_0 = mix1_accuracies[2, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_0')
-        mix_10_100_50 = mix1_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_50')
-        # We need to a couple more experiments in this category
+        mix_10_100_25 = mix1_accuracies[3, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_25')
+        mix_10_100_50 = mix1_accuracies[4, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_50')
+        mix_10_100_75 = mix1_accuracies[5, :] = get_accuracy(savedir_mix, 'mix_SI_XdG_10_100_75')
         
         mix1_labels = ['Pure MNIST', 
-                       'Pure Fashion MNIST', 
-                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
-                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 50% MNIST, 50% Fashion-MNIST']
+                       'Pure Fashion-MNIST', 
+                       '10 tasks trained with 100% M, 0% F-M, 90 tasks trained with 0% M, 100% F-M',
+                       '10 tasks trained with 100% M, 0% F-M, 90 tasks trained with 25% M, 75% F-M', 
+                       '10 tasks trained with 100% M, 0% F-M, 90 tasks trained with 50% M, 50% F-M',
+                       '10 tasks trained with 100% M, 0% F-M, 90 tasks trained with 75% M, 25% F-M']
 
         CIFAR_Mix1 = False
         mix1_name = 'MixTraining_1.png'
-        mix1_title = 'Accuracies over 100 tasks with both mixed and unmixed datasets'
+        mix1_title = 'Accuracies over 100 tasks with mixed and unmixed datasets'
         showMixGraph1 = False
 
         make_plots(CIFAR_Mix1, mix1_accuracies, mix1_labels, mix_png_OutPath, mix1_name, mix1_title, showMixGraph1)
@@ -167,11 +170,11 @@ def plot_mix(type):
         # We need to run more experiments here
 
         mix2_labels = ['Pure MNIST', 
-                       'Pure Fashion MNIST', 
-                       'First 10 tasks trained with 100% MNIST, 0% Fashion-MNIST, later 90 tasks trained with 0% MNIST, 100% Fashion-MNIST', 
-                       'First 10 tasks trained with 80% MNIST, 20% Fashion-MNIST, later 90 tasks trained with 20% MNIST, 80% Fashion-MNIST',
-                       'First 10 tasks trained with 60% MNIST, 40% Fashion-MNIST, later 90 tasks trained with 40% MNIST, 60% Fashion-MNIST', 
-                       'First 10 tasks trained with 40% MNIST, 60% Fashion-MNIST, later 90 tasks trained with 60% MNIST, 40% Fashion-MNIST'] 
+                       'Pure Fashion-MNIST', 
+                       '10 tasks trained with 100% M, 0% F-MN, 90 tasks trained with 0% M, 100% F-M', 
+                       '10 tasks trained with 80% M, 20% F-M, 90 tasks trained with 20% M, 80% F-M',
+                       '10 tasks trained with 60% M, 40% F-M, 90 tasks trained with 40% M, 60% F-M', 
+                       '10 tasks trained with 40% M, 60% F-M, 90 tasks trained with 60% M, 40% F-M'] 
 
         CIFAR_Mix2 = False
         mix2_name = 'MixTraining_2.png'
@@ -188,7 +191,7 @@ def plot_mix(type):
 #***************************************************                        *****************************************************************
 #********************************************************************************************************************************************
     elif type == 'ReviewTraining':
-        print('\nPloting MNIST and Fashion-MNIST ReviewTraining results\n')
+        print('\nPloting MNIST and Fashion-MNIST ReviewTraining results')
         savedir_mix = 'savedir/mix/' + type + '/'
         review_png_OutPath = '/Users/zhuokaizhao/Desktop/UChicago/Autumn2018/CMSC_35200_Deep_Learning_System/Project/Plots/ReviewTraining/'
 
@@ -230,38 +233,46 @@ def plot_mix(type):
         review_20_2 = review2_accuracies[3, :] = get_accuracy(savedir_mix, 'review_SI_XdG_20_2')
         review_40_2 = review2_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_40_2')
 
-        review2_labels = ['SI+XdG - Pure MNIST',
-                          'SI+XdG - Pure Fashion-MNIST',
-                          'SI+XdG - First 10 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',
-                          'SI+XdG - First 20 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',
-                          'SI+XdG - First 40 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',]
+        review2_labels = ['Pure MNIST',
+                          'Pure Fashion-MNIST',
+                          'First 10 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',
+                          'First 20 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',
+                          'First 40 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',]
 
         CIFAR_Review2 = False
-        review2_name = 'ReviewTraining_3_DiffNumFirstTasks.png'
-        review2_title = 'Accuracies over 100 tasks with different initial tasks that have been trained solely with MNIST'
+        review2_name = 'ReviewTraining_2.png'
+        review2_title = 'Accuracies over 100 tasks with different MNIST-trained initial tasks'
         showReviewGraph2 = False
 
         make_plots(CIFAR_Review2, review2_accuracies, review2_labels, review_png_OutPath, review2_name, review2_title, showReviewGraph2)
         
         
         #***************************** Graph 3 - the comparisons between different methods (SI vs EWC) ***********************************
+        '''
         print('Ploting review graph 3')
-        review3_accuracies = np.zeros((3, 100))
+        review3_accuracies = np.zeros((6, 100))
         
-        mnist = review3_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
-        review_10_2 = review3_accuracies[1, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
-        review_10_2_EWC = review3_accuracies[2, :] = get_accuracy(savedir_mix, 'review_EWC_XdG_10_2')
+        mnist_SI_XdG = review3_accuracies[0, :] = get_accuracy(savedir_mnist, 'mnist_SI_XdG')
+        mnist_EWC_XdG = review3_accuracies[1, :] = get_accuracy(savedir_mnist, 'mnist_EWC_XdG')
+        fashion_mnist_SI_XdG = review3_accuracies[2, :] = get_accuracy(savedir_fashion, 'fashion_mnist_SI_XdG')
+        fashion_mnist_EWC_XdG = review3_accuracies[3, :] = get_accuracy(savedir_fashion, 'fashion_mnist_EWC_XdG')
+        review_10_2 = review3_accuracies[4, :] = get_accuracy(savedir_mix, 'review_SI_XdG_10_2')
+        review_10_2_EWC = review3_accuracies[5, :] = get_accuracy(savedir_mix, 'review_EWC_XdG_10_2')
         
         review3_labels = ['SI+XdG - Pure MNIST',
+                          'EWC+XdG - Pure MNIST',
+                          'SI+XdG - Pure Fashion-MNIST',
+                          'EWC+XdG - Pure Fashion-MNIST',
                           'SI+XdG - First 10 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks',
                           'EWC+XdG - First 10 task train with MNIST, later train with Fashion-MNIST, review MNIST every 2 tasks']  
 
         CIFAR_Review3 = False
-        review3_name = 'ReviewTraining_4_SIvsEWC.png'
+        review3_name = 'ReviewTraining_3.png'
         review3_title = 'Accuracies over 100 tasks with different initial tasks that have been trained solely with MNIST'
         showReviewGraph3 = False
 
         make_plots(CIFAR_Review3, review3_accuracies, review3_labels, review_png_OutPath, review3_name, review3_title, showReviewGraph3)
+        '''
         
 
     else:
