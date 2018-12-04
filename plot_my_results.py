@@ -266,7 +266,7 @@ def plot_mix(type):
                           'EWC+XdG - 10 tasks train with M, 90 tasks trained with F-M, review M every 2 tasks']  
 
         CIFAR_Review3 = False
-        review3_name = 'ReviewTraining_3_SIvsXdG.png'
+        review3_name = 'ReviewTraining_3_SIvsEWC.png'
         review3_title = 'Comparisons between SI+XdG and EWC+SdG with Fashion-MNIST'
         showReviewGraph3 = False
 
